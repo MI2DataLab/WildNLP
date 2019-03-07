@@ -7,13 +7,13 @@ def read(fname):
 
 
 setup(
-    name="yt_data",
+    name="wildnlp",
     version="1.0",
     author="Dominika Basaj, Adam Słucki",
     author_email="adam.slucki@gmail.com",
     description=("Wrapper for youtube data API"),
     license="BSD",
-    packages=['yt_data'],
+    packages=['wildnlp'],
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 3 - Alpha",
