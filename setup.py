@@ -11,7 +11,7 @@ setup(
     version="1.0",
     author="Dominika Basaj, Adam Słucki",
     author_email="adam.slucki@gmail.com",
-    description=("Wrapper for youtube data API"),
+    description=("Text corruptors for nlp models"),
     license="BSD",
     packages=['wildnlp'],
     long_description=read('README.md'),
