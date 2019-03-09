@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Test NLP models in the wild! &mdash; wild-nlp 0.0.1 documentation</title>
+  <title>Datasets &mdash; wild-nlp 0.0.1 documentation</title>
   
 
   
@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Quick Start Guide" href="quickstart.html" /> 
+    <link rel="prev" title="Aspects" href="aspects.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -49,7 +49,7 @@
           
 
           
-            <a href="#" class="icon icon-home"> wild-nlp
+            <a href="index.html" class="icon icon-home"> wild-nlp
           
 
           
@@ -79,10 +79,13 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start quide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aspects.html">Aspects</a></li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sample-dataset">Sample dataset</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -97,7 +100,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">wild-nlp</a>
+          <a href="index.html">wild-nlp</a>
         
       </nav>
 
@@ -126,15 +129,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#">Docs</a> &raquo;</li>
+      <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Test NLP models in the wild!</li>
+      <li>Datasets</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/datasets.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -147,28 +150,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="test-nlp-models-in-the-wild">
-<h1>Test NLP models in the wild!<a class="headerlink" href="#test-nlp-models-in-the-wild" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start quide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#loading-a-dataset">Loading a dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#corrupting-a-text">Corrupting a text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quickstart.html#full-example-with-multiple-corruptors">Full example with multiple corruptors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="aspects.html">Aspects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="aspects.html#reverser">Reverser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aspects.html#piglatin">PigLatin</a></li>
-<li class="toctree-l2"><a class="reference internal" href="aspects.html#module-wildnlp.aspects.utils">Utility functions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="datasets.html#sample-dataset">Sample dataset</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="datasets">
+<h1>Datasets<a class="headerlink" href="#datasets" title="Permalink to this headline">¶</a></h1>
+<p>Details regarding popular datasets for various NLP problems
+that are supported by the wild-nlp.</p>
+<div class="section" id="sample-dataset">
+<h2>Sample dataset<a class="headerlink" href="#sample-dataset" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.datasets.sample_dataset.SampleDataset">
+<em class="property">class </em><code class="descclassname">wildnlp.datasets.sample_dataset.</code><code class="descname">SampleDataset</code><a class="reference internal" href="_modules/wildnlp/datasets/sample_dataset.html#SampleDataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.sample_dataset.SampleDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.datasets.base.Dataset</span></code></p>
+<p>Simple list of sentences solely
+for testing and example purpose.</p>
+<dl class="method">
+<dt id="wildnlp.datasets.sample_dataset.SampleDataset.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>aspect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/sample_dataset.html#SampleDataset.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.sample_dataset.SampleDataset.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>The method should iterate through texts
+in the dataset and apply a given aspect to them.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.sample_dataset.SampleDataset.load">
+<code class="descname">load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/sample_dataset.html#SampleDataset.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.sample_dataset.SampleDataset.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>The method should handle loading
+and parsing of a specific dataset.</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 
@@ -180,8 +189,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="quickstart.html" class="btn btn-neutral float-right" title="Quick Start Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+        <a href="aspects.html" class="btn btn-neutral float-left" title="Aspects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
