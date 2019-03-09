@@ -61,7 +61,5 @@ The dataset's contents
 After applying the aspects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 >>> print(modified)
-['gninnaM si a redael ni gniylppa peeD gninraeL ot larutaN egaugnaL gnissecorP',
-'gninnaM sah derohtuaoc gnidael skoobtxet no lacitsitats sehcaorppa ot larutaN egaugnaL gnissecorP']
-
+['ninnamgay isay aay edaelray inay niylppagay eedpay ninraelgay toay arutanlay gaugnaleay nissecorpgay', 'ninnamgay ahsay erohtuaocday nidaelgay koobtxetsay onay acitsitatslay ehcaorppasay toay arutanlay gaugnaleay nissecorpgay']
 
