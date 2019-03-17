@@ -1,3 +1,4 @@
+.PHONY: build, dev, test
 IMAGE_NAME=wildnlp
 
 build:
@@ -10,4 +11,4 @@ dev:
 		$(IMAGE_NAME)
 
 test:
-	python3 -m pytest tests/
+	python3 -m pytest tests/ -s

@@ -9,3 +9,10 @@ Sample dataset
 .. autoclass:: wildnlp.datasets.sample_dataset.SampleDataset
    :members:
    :show-inheritance:
+
+CoNLL 2003
+--------------
+
+.. autoclass:: wildnlp.datasets.conll.CoNLL
+   :members:
+   :show-inheritance:

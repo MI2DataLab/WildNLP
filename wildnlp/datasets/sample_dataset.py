@@ -19,3 +19,6 @@ class SampleDataset(Dataset):
 
     def apply(self, aspect):
         return [aspect(sentence) for sentence in self._data]
+
+    def save(self):
+        pass

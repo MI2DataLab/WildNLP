@@ -14,3 +14,9 @@ class Dataset(ABC):
         in the dataset and apply a given aspect to them.
         """
         pass
+
+    def save(self, *args, **kwargs):
+        """The method should iterate through texts
+        in the dataset and apply a given aspect to them.
+        """
+        pass
