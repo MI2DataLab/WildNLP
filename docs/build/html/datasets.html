@@ -85,6 +85,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Datasets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#sample-dataset">Sample dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#conll-2003">CoNLL 2003</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#snli">SNLI</a></li>
 </ul>
 </li>
 </ul>
@@ -191,10 +192,10 @@ in the dataset and apply a given aspect to them.</p>
 <h2>CoNLL 2003<a class="headerlink" href="#conll-2003" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="wildnlp.datasets.conll.CoNLL">
-<em class="property">class </em><code class="descclassname">wildnlp.datasets.conll.</code><code class="descname">CoNLL</code><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">wildnlp.datasets.conll.</code><code class="descname">CoNLL</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.datasets.base.Dataset</span></code></p>
 <p>The CoNLL-2003 shared task data for language-independent named
-entity recognition. For the details see:
+entity recognition. For details see:
 <a class="reference external" href="https://www.clips.uantwerpen.be/conll2003/ner/">https://www.clips.uantwerpen.be/conll2003/ner/</a></p>
 <dl class="method">
 <dt id="wildnlp.datasets.conll.CoNLL.apply">
@@ -231,7 +232,7 @@ will be applied only to Named Entities.</li>
 <dl class="method">
 <dt id="wildnlp.datasets.conll.CoNLL.load">
 <code class="descname">load</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL.load" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reads the CoNLL dataset file
+<dd><p>Reads a CoNLL dataset file
 and loads into internal data structure in the following form:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[{</span><span class="n">tokens</span><span class="p">:</span> <span class="n">array</span><span class="p">(</span><span class="o">&lt;</span><span class="n">tokens</span><span class="o">&gt;</span><span class="p">)</span>
   <span class="n">pos_tags</span><span class="p">:</span> <span class="n">array</span><span class="p">(</span><span class="o">&lt;</span><span class="n">pos_tags</span><span class="o">&gt;</span><span class="p">),</span>
@@ -247,7 +248,7 @@ and loads into internal data structure in the following form:</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – A path to the file with CoNLL data</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – A path to a file with CoNLL data</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
 </tr>
@@ -288,6 +289,46 @@ it will be overwritten.</td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="snli">
+<h2>SNLI<a class="headerlink" href="#snli" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.datasets.snli.SNLI">
+<em class="property">class </em><code class="descclassname">wildnlp.datasets.snli.</code><code class="descname">SNLI</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/snli.html#SNLI"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.snli.SNLI" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.datasets.base.Dataset</span></code></p>
+<p>The SNLI dataset supporting the task of natural language inference.
+For details see: <a class="reference external" href="https://nlp.stanford.edu/projects/snli/">https://nlp.stanford.edu/projects/snli/</a></p>
+<dl class="method">
+<dt id="wildnlp.datasets.snli.SNLI.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>aspect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/snli.html#SNLI.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.snli.SNLI.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies premises (sentence1) in the dataset
+leaving other data intact.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.snli.SNLI.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/snli.html#SNLI.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.snli.SNLI.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a SNLI dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – A path to a SNLI data file in JSONL format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.snli.SNLI.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>data</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/snli.html#SNLI.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.snli.SNLI.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves data in the SNLI format</p>
 </dd></dl>
 
 </dd></dl>

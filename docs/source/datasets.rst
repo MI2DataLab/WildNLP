@@ -16,3 +16,10 @@ CoNLL 2003
 .. autoclass:: wildnlp.datasets.conll.CoNLL
    :members:
    :show-inheritance:
+
+SNLI
+--------------
+
+.. autoclass:: wildnlp.datasets.snli.SNLI
+   :members:
+   :show-inheritance:

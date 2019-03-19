@@ -1,19 +1,17 @@
 import numpy as np
 
-from .base import Dataset
+from .base import Dataset, file_exists_check
 
 
 class CoNLL(Dataset):
     """The CoNLL-2003 shared task data for language-independent named
-    entity recognition. For the details see:
+    entity recognition. For details see:
     https://www.clips.uantwerpen.be/conll2003/ner/
     """
 
-    def __init__(self):
-        self._data = []
-
+    @file_exists_check
     def load(self, path):
-        """Reads the CoNLL dataset file
+        """Reads a CoNLL dataset file
         and loads into internal data structure in the following form:
 
         ::
@@ -27,34 +25,30 @@ class CoNLL(Dataset):
 
               ]
 
-        :param path: A path to the file with CoNLL data
+        :param path: A path to a file with CoNLL data
 
         :return: None
 
         """
-        try:
-            with open(path, "r") as f:
-                for line in f.readlines():
-                    if line == "-DOCSTART- -X- O O\n":
-                        continue
+        with open(path, "r") as f:
+            for line in f.readlines():
+                if line == "-DOCSTART- -X- O O\n":
+                    continue
 
-                    elif line == "\n":
-                        try:
-                            processed = self._process_sample(sample)
-                            self._data.append(processed)
-                        except NameError:
-                            pass
-                        sample = ""
+                elif line == "\n":
+                    try:
+                        processed = self._process_sample(sample)
+                        self._data.append(processed)
+                    except NameError:
+                        pass
+                    sample = ""
 
-                    else:
-                        sample += line
+                else:
+                    sample += line
 
-                if sample != "":
-                    processed = self._process_sample(sample)
-                    self._data.append(processed)
-
-        except FileNotFoundError:
-            print("Check if the file path is correct")
+            if sample != "":
+                processed = self._process_sample(sample)
+                self._data.append(processed)
 
     def apply(self, aspect, apply_to_ne=False):
         """

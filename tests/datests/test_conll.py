@@ -18,10 +18,10 @@ def test_load():
     dataset = CoNLL()
     dataset.load(get_file_path())
 
-    assert len(dataset._data) == 3
-    assert dataset._data[0]['tokens'][0] == 'EU'
-    assert dataset._data[2]['pos_tags'][0] == 'NNP'
-    assert len(dataset._data[2]['tokens']) == 2
+    assert len(dataset.data) == 3
+    assert dataset.data[0]['tokens'][0] == 'EU'
+    assert dataset.data[2]['pos_tags'][0] == 'NNP'
+    assert len(dataset.data[2]['tokens']) == 2
 
 
 def test_modify_mask_ne():
@@ -53,7 +53,7 @@ def test_save_original():
 
     with tempfile.TemporaryDirectory() as dirname:
         test_file_path = os.path.join(dirname, 'test.txt')
-        dataset.save(dataset._data, test_file_path)
+        dataset.save(dataset.data, test_file_path)
 
         assert filecmp.cmp(get_file_path(), test_file_path, shallow=False)
 
