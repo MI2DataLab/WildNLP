@@ -46,7 +46,7 @@ def test_modify():
 
 def test_save_original():
 
-    dataset = SNLI()
+    dataset = get_dataset_obj()
     dataset.load(get_file_path())
 
     with tempfile.TemporaryDirectory() as dirname:
@@ -58,7 +58,7 @@ def test_save_original():
 
 def test_save_modified():
 
-    dataset = SNLI()
+    dataset = get_dataset_obj()
     dataset.load(get_file_path())
 
     # Reversing two times equals to original input

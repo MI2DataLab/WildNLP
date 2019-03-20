@@ -7,7 +7,8 @@ class Reverser(Aspect):
 
     def __call__(self, sentence):
         return " ".join([self._transform_word(word)
-                        for word in sentence.split()])
+                         if word != '' else ''
+                         for word in sentence.split(' ')])
 
     @staticmethod
     def _transform_word(word):
