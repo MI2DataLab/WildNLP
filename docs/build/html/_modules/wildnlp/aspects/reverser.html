@@ -154,7 +154,8 @@
 
 <div class="viewcode-block" id="Reverser.__call__"><a class="viewcode-back" href="../../../aspects.html#wildnlp.aspects.reverser.Reverser.__call__">[docs]</a>    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sentence</span><span class="p">):</span>
         <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">_transform_word</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-                        <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">()])</span></div>
+                         <span class="k">if</span> <span class="n">word</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+                         <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">sentence</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)])</span></div>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_transform_word</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>

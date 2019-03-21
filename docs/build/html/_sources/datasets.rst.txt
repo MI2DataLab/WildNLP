@@ -23,3 +23,17 @@ SNLI
 .. autoclass:: wildnlp.datasets.snli.SNLI
    :members:
    :show-inheritance:
+
+SQuAD
+--------------
+
+.. autoclass:: wildnlp.datasets.squad.SQuAD
+   :members:
+   :show-inheritance:
+
+IMDB
+--------------
+
+.. autoclass:: wildnlp.datasets.imdb.IMDB
+   :members:
+   :show-inheritance:

@@ -86,6 +86,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#sample-dataset">Sample dataset</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#conll-2003">CoNLL 2003</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#snli">SNLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#squad">SQuAD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#imdb">IMDB</a></li>
 </ul>
 </li>
 </ul>
@@ -329,6 +331,115 @@ leaving other data intact.</p>
 <dt id="wildnlp.datasets.snli.SNLI.save">
 <code class="descname">save</code><span class="sig-paren">(</span><em>data</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/snli.html#SNLI.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.snli.SNLI.save" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves data in the SNLI format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="squad">
+<h2>SQuAD<a class="headerlink" href="#squad" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.datasets.squad.SQuAD">
+<em class="property">class </em><code class="descclassname">wildnlp.datasets.squad.</code><code class="descname">SQuAD</code><a class="reference internal" href="_modules/wildnlp/datasets/squad.html#SQuAD"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.squad.SQuAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.datasets.base.Dataset</span></code></p>
+<p>The SQuAD dataset.
+For details see: <a class="reference external" href="https://rajpurkar.github.io/SQuAD-explorer/">https://rajpurkar.github.io/SQuAD-explorer/</a></p>
+<dl class="method">
+<dt id="wildnlp.datasets.squad.SQuAD.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>aspect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/squad.html#SQuAD.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.squad.SQuAD.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies questions in the dataset
+leaving other data intact.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.squad.SQuAD.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/squad.html#SQuAD.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.squad.SQuAD.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a SQuAD dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – A path to a SQuAD data file in JSONL format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.squad.SQuAD.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>data</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/squad.html#SQuAD.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.squad.SQuAD.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves data in the SQuAD format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="imdb">
+<h2>IMDB<a class="headerlink" href="#imdb" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.datasets.imdb.IMDB">
+<em class="property">class </em><code class="descclassname">wildnlp.datasets.imdb.</code><code class="descname">IMDB</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/imdb.html#IMDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.imdb.IMDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.datasets.base.Dataset</span></code></p>
+<p>The IMDB dataset containing movie reviews for a sentiment analysis.
+The dataset consists of 50 000 reviews of two classes, negative and positive.
+Each review is stored in a separate text file.
+For details see: <a class="reference external" href="http://ai.stanford.edu/~amaas/data/sentiment/">http://ai.stanford.edu/~amaas/data/sentiment/</a></p>
+<dl class="method">
+<dt id="wildnlp.datasets.imdb.IMDB.apply">
+<code class="descname">apply</code><span class="sig-paren">(</span><em>aspect</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/imdb.html#IMDB.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.imdb.IMDB.apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies contents of the whole files in the IMDB dataset.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.imdb.IMDB.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/imdb.html#IMDB.load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.imdb.IMDB.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a SNLI dataset.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – A path to single file, directory containing review files
+or list of paths to such directories.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.imdb.IMDB.save">
+<code class="descname">save</code><span class="sig-paren">(</span><em>data</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/imdb.html#IMDB.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.imdb.IMDB.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves IMDB reviews to separate files
+with the original names.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – path to a top directory where files will be saved.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="wildnlp.datasets.imdb.IMDB.save_tsv">
+<code class="descname">save_tsv</code><span class="sig-paren">(</span><em>data</em>, <em>path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/imdb.html#IMDB.save_tsv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.imdb.IMDB.save_tsv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convenience function for saving IMDB reviews into a single TSV file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – Path to a tab separated file.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">None</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>

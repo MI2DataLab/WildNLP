@@ -4,7 +4,7 @@ from .base import Dataset, file_exists_check
 
 
 class SQuAD(Dataset):
-    """The SQuAD dataset
+    """The SQuAD dataset.
     For details see: https://rajpurkar.github.io/SQuAD-explorer/
     """
 
