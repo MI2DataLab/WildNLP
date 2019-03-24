@@ -84,6 +84,11 @@
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start quide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Aspects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-wildnlp.aspects.utils">Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#characters-swapping">Characters swapping</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#articleswapper">ArticleSwapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#characterswapper">CharacterSwapper</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#dummy-aspects">Dummy aspects</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#reverser">Reverser</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#piglatin">PigLatin</a></li>
@@ -178,6 +183,76 @@ Corrupted sentences can be then used to test NLP models’ robustness.</p>
 </table>
 </dd></dl>
 
+</div>
+<div class="section" id="characters-swapping">
+<h2>Characters swapping<a class="headerlink" href="#characters-swapping" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="articleswapper">
+<h3>ArticleSwapper<a class="headerlink" href="#articleswapper" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="wildnlp.aspects.articles.ArticleSwapper">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.articles.</code><code class="descname">ArticleSwapper</code><span class="sig-paren">(</span><em>swap_probability=0.5</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/articles.html#ArticleSwapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.articles.ArticleSwapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
+<p>Randomly removes or swaps articles into wrong ones.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.articles.ArticleSwapper.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>swap_probability=0.5</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/articles.html#ArticleSwapper.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.articles.ArticleSwapper.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>swap_probability</strong> – Probability of applying a transformation.
+Defaults to 0.5.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="characterswapper">
+<h3>CharacterSwapper<a class="headerlink" href="#characterswapper" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="wildnlp.aspects.swap.CharacterSwapper">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.swap.</code><code class="descname">CharacterSwapper</code><span class="sig-paren">(</span><em>num_words_to_swap</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/swap.html#CharacterSwapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.swap.CharacterSwapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
+<p>Randomly swaps two characters within a word, excluding punctuations.
+It’s possible that the same two characters will be swapped which, so
+the word won’t be changed, for example <cite>letter</cite> can become <cite>letter</cite>
+after swapping.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.swap.CharacterSwapper.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>num_words_to_swap</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/swap.html#CharacterSwapper.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.swap.CharacterSwapper.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>num_words_to_swap</strong> – Maximum number of words in a sentence
+that should be swapped.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="dummy-aspects">
 <h2>Dummy aspects<a class="headerlink" href="#dummy-aspects" title="Permalink to this headline">¶</a></h2>

@@ -10,6 +10,25 @@ Utility functions
 .. automodule:: wildnlp.aspects.utils
    :members:
 
+Characters swapping
+-------------------
+
+ArticleSwapper
+~~~~~~~~~~~~~~
+
+.. autoclass:: wildnlp.aspects.articles.ArticleSwapper
+   :members:
+   :special-members: __init__
+   :show-inheritance:
+
+
+CharacterSwapper
+~~~~~~~~~~~~~~~~
+
+.. autoclass:: wildnlp.aspects.swap.CharacterSwapper
+   :members:
+   :special-members: __init__
+   :show-inheritance:
 
 Dummy aspects
 -------------
