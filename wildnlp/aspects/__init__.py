@@ -1,2 +1,2 @@
-from .piglatin import PigLatin
-from .reverser import Reverser
+from .dummy.piglatin import PigLatin
+from .dummy.reverser import Reverser

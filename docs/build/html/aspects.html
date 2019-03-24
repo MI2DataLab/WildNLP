@@ -83,9 +83,12 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start quide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Aspects</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#reverser">Reverser</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#piglatin">PigLatin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-wildnlp.aspects.utils">Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dummy-aspects">Dummy aspects</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reverser">Reverser</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#piglatin">PigLatin</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
@@ -157,42 +160,6 @@
 <h1>Aspects<a class="headerlink" href="#aspects" title="Permalink to this headline">¶</a></h1>
 <p>Functions that can be applied to sentences to corrupt them in a controled way.
 Corrupted sentences can be then used to test NLP models’ robustness.</p>
-<div class="section" id="reverser">
-<h2>Reverser<a class="headerlink" href="#reverser" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="wildnlp.aspects.reverser.Reverser">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.reverser.</code><code class="descname">Reverser</code><a class="reference internal" href="_modules/wildnlp/aspects/reverser.html#Reverser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.reverser.Reverser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
-<p>Reverse all characters in words.</p>
-<dl class="method">
-<dt id="wildnlp.aspects.reverser.Reverser.__call__">
-<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/reverser.html#Reverser.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.reverser.Reverser.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>We want to directly call
-objects of the Aspect class for easy chaining.
-This function will be applied to sentences.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="piglatin">
-<h2>PigLatin<a class="headerlink" href="#piglatin" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="wildnlp.aspects.piglatin.PigLatin">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.piglatin.</code><code class="descname">PigLatin</code><a class="reference internal" href="_modules/wildnlp/aspects/piglatin.html#PigLatin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.piglatin.PigLatin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
-<p>See wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Pig_Latin">https://en.wikipedia.org/wiki/Pig_Latin</a></p>
-<dl class="method">
-<dt id="wildnlp.aspects.piglatin.PigLatin.__call__">
-<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/piglatin.html#PigLatin.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.piglatin.PigLatin.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>We want to directly call
-objects of the Aspect class for easy chaining.
-This function will be applied to sentences.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="module-wildnlp.aspects.utils">
 <span id="utility-functions"></span><h2>Utility functions<a class="headerlink" href="#module-wildnlp.aspects.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -211,6 +178,47 @@ This function will be applied to sentences.</p>
 </table>
 </dd></dl>
 
+</div>
+<div class="section" id="dummy-aspects">
+<h2>Dummy aspects<a class="headerlink" href="#dummy-aspects" title="Permalink to this headline">¶</a></h2>
+<p>Convenient for testing. Shouldn’t be used for actual
+transformation of datasets.</p>
+<div class="section" id="reverser">
+<h3>Reverser<a class="headerlink" href="#reverser" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="wildnlp.aspects.dummy.reverser.Reverser">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.dummy.reverser.</code><code class="descname">Reverser</code><a class="reference internal" href="_modules/wildnlp/aspects/dummy/reverser.html#Reverser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.reverser.Reverser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
+<p>Reverse all characters in words.</p>
+<dl class="method">
+<dt id="wildnlp.aspects.dummy.reverser.Reverser.__call__">
+<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/dummy/reverser.html#Reverser.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.reverser.Reverser.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to directly call
+objects of the Aspect class for easy chaining.
+This function will be applied to sentences.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="piglatin">
+<h3>PigLatin<a class="headerlink" href="#piglatin" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="wildnlp.aspects.dummy.piglatin.PigLatin">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.dummy.piglatin.</code><code class="descname">PigLatin</code><a class="reference internal" href="_modules/wildnlp/aspects/dummy/piglatin.html#PigLatin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.piglatin.PigLatin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
+<p>See wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Pig_Latin">https://en.wikipedia.org/wiki/Pig_Latin</a></p>
+<dl class="method">
+<dt id="wildnlp.aspects.dummy.piglatin.PigLatin.__call__">
+<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/dummy/piglatin.html#PigLatin.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.piglatin.PigLatin.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to directly call
+objects of the Aspect class for easy chaining.
+This function will be applied to sentences.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 </div>
 

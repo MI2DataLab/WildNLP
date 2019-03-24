@@ -1,4 +1,4 @@
-from .base import Aspect
+from ..base import Aspect
 
 
 class PigLatin(Aspect):
