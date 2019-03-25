@@ -16,7 +16,7 @@ class CharacterSwapper(Aspect):
         """
 
         :param num_words_to_swap: Maximum number of words in a sentence
-                                  that should be swapped.
+                                  that should be transformed.
 
         :param seed: Random seed.
         """
