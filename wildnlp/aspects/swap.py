@@ -3,7 +3,7 @@ import random
 from .base import Aspect
 
 
-class CharacterSwapper(Aspect):
+class Swap(Aspect):
     """Randomly swaps two characters within a word, excluding punctuations.
     It's possible that the same two characters will be swapped which, so
     the word won't be changed, for example `letter` can become `letter`
@@ -12,15 +12,19 @@ class CharacterSwapper(Aspect):
     .. warning:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, num_words_to_swap, seed=42):
+    def __init__(self, transform_percentage=100, seed=42):
         """
 
-        :param num_words_to_swap: Maximum number of words in a sentence
-                                  that should be transformed.
+        :param transform_percentage: Maximum percentage of words in a
+            sentence that should be transformed.
 
         :param seed: Random seed.
         """
-        self._num_words_to_swap = num_words_to_swap
+
+        if transform_percentage > 1:
+            transform_percentage /= 100.
+
+        self._transform_percentage = transform_percentage
 
         random.seed(seed)
 
@@ -39,7 +43,8 @@ class CharacterSwapper(Aspect):
                            if len(token) > 2]
 
         random.shuffle(tokens_filtered)
-        selected_tokens = sorted(tokens_filtered[:self._num_words_to_swap])
+        selected_tokens =\
+            sorted(tokens_filtered[:self._percentage_to_number(len(tokens))])
 
         modified = []
         for i, token in enumerate(tokens):
@@ -54,4 +59,6 @@ class CharacterSwapper(Aspect):
 
         return modified
 
+    def _percentage_to_number(self, num_tokens):
+        return int(self._transform_percentage * num_tokens)
 

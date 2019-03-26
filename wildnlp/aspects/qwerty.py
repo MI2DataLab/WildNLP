@@ -5,25 +5,29 @@ import random
 from .base import Aspect
 
 
-class QWERTYSwapper(Aspect):
+class QWERTY(Aspect):
     """Simualtes errors made while writing on a QWERTY-type keyboard.
     Characters are swapped with their neighbors on the keyboard.
 
     .. warning:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, num_words_to_swap=1, seed=42):
+    def __init__(self, transform_percentage=1, seed=42):
         """
 
-        :param num_words_to_swap: Maximum number of words in a sentence
-                                  that should be transformed. Defaults to one.
+        :param transform_percentage: Maximum percentage of words in a
+            sentence that should be transformed.
 
         :param seed: Random seed.
         """
 
         # TODO According to the original implementation
-        #     it seem's that the variable should default to 1.
-        self._num_words_to_swap = num_words_to_swap
+        #     it seem's that the variable should default to 1
+        #     (when it was referring to absolute numbers)
+        if transform_percentage > 1:
+            transform_percentage /= 100.
+        self._transform_percentage = transform_percentage
+
         self._qwerty_mistakes = self._load_qwerty_mistakes()
 
         random.seed(seed)
@@ -42,7 +46,8 @@ class QWERTYSwapper(Aspect):
         tokens_idx = list(range(len(tokens)))
         random.shuffle(tokens_idx)
 
-        selected_tokens = sorted(tokens_idx[:self._num_words_to_swap])
+        selected_tokens =\
+            sorted(tokens_idx[:self._percentage_to_number(len(tokens))])
 
         modified = []
         for i, token in enumerate(tokens):
@@ -75,6 +80,9 @@ class QWERTYSwapper(Aspect):
             mistakes = json.load(f)
 
         return mistakes
+
+    def _percentage_to_number(self, num_tokens):
+        return int(self._transform_percentage * num_tokens)
 
 
 

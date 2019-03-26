@@ -1,26 +1,30 @@
-from wildnlp.aspects import ArticleSwapper
+from wildnlp.aspects import Articles
 
 
 def test_basic():
     sentence = 'This is a test.'
-    modified = ArticleSwapper(swap_probability=1, seed=42)(sentence)
+    modified = Articles(swap_probability=1, seed=42)(sentence)
 
-    assert modified == 'This is an test.'
+    assert modified.split()[0] == 'This'
+    assert modified.split()[2] != 'a'
 
 
 def test_advanced():
     sentence = 'Warsaw was believed to be one of '\
                'the most beautiful cities in the world.'
-    modified = ArticleSwapper(swap_probability=1, seed=42)(sentence)
+    modified = Articles(swap_probability=1, seed=42)(sentence)
 
-    assert modified == 'Warsaw was believed to be one of '\
-                       'a most beautiful cities in a world.'
+    assert 'the' not in modified.split()
 
 
 def test_multiple_sentences():
     sentences = 'This is a dollar sign - $. '\
                 'A rabbit, the cute one, is looking for a carrot.'
-    modified = ArticleSwapper(swap_probability=1, seed=42)(sentences)
+    modified = Articles(swap_probability=1, seed=42)(sentences)
 
-    assert modified == 'This is an dollar sign - $. ' \
-                       'A rabbit, a cute one, is looking for carrot.'
+    assert len(modified.split('.')) == 3
+    assert modified.split('.')[-1] == ''
+
+    second_sentence = modified.split('.')[1]
+    assert second_sentence[0] == ' '
+    assert second_sentence[1].isupper() or second_sentence[1] == ''

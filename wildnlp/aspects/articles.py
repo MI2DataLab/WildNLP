@@ -3,7 +3,7 @@ import random
 from .base import Aspect
 
 
-class ArticleSwapper(Aspect):
+class Articles(Aspect):
     """Randomly removes or swaps articles into wrong ones.
 
     .. warning:: Uses random numbers, default seed is 42.
@@ -32,15 +32,29 @@ class ArticleSwapper(Aspect):
 
         modified = []
         for token in tokens:
-            if token in self._articles \
+            if token.lower() in self._articles \
                and random.random() < self._swap_probability:
 
                 articles_copy = self._articles.copy()
-                articles_copy.remove(token)
-                token = random.choice(articles_copy)
+                articles_copy.remove(token.lower())
+                selected_article = random.choice(articles_copy)
+
+                # TODO: Added handling the case when the article being
+                #     modified is at the beginning of a sentence.
+                if token[0].isupper():
+                    selected_article = self._capitalize(selected_article)
+
+                token = selected_article
 
             modified.append(token)
 
         return modified
+
+    @staticmethod
+    def _capitalize(token):
+        try:
+            return token[0].upper() + token[1:]
+        except IndexError:
+            return token
 
 
