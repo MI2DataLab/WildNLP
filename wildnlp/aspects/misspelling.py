@@ -7,8 +7,11 @@ from .base import Aspect
 
 class Misspelling(Aspect):
     """Misspells words appearing in the Wikipedia list of
-    commonly misspelled English words:
+    commonly misspelled English words (default):
     https://en.wikipedia.org/wiki/Commonly_misspelled_English_words
+
+    or homophones:
+    https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/Homophones
 
     If a word has more then one common misspelling, the replacement
     is selected randomly.
@@ -18,12 +21,18 @@ class Misspelling(Aspect):
     .. warning:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, seed=42):
+    def __init__(self, use_homophones=False, seed=42):
         """
+        :param use_homophones: If True list of homophones will be used
+                               to replace words.
+
         :param seed: Random seed.
         """
 
-        self._misspellings = self._load_misspellings()
+        filename = 'misspellings.json'
+        if use_homophones:
+            filename = 'homophones.json'
+        self._misspellings = self._load_misspellings(filename)
 
         random.seed(seed)
 
@@ -51,10 +60,10 @@ class Misspelling(Aspect):
         return modified
 
     @staticmethod
-    def _load_misspellings():
+    def _load_misspellings(filename):
 
         current_dir = os.path.dirname(__file__)
-        path = os.path.join(current_dir, 'auxiliary', 'misspellings.json')
+        path = os.path.join(current_dir, 'auxiliary', filename)
         with open(path, 'r') as f:
             mistakes = json.load(f)
 

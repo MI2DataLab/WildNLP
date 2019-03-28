@@ -23,6 +23,7 @@ setup(
         "License :: OSI Approved :: BSD License",
     ],
     install_requires=[
-        'numpy'
+        'numpy',
+        'num2words'
     ]
 )

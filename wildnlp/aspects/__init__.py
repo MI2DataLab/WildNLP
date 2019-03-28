@@ -3,5 +3,6 @@ from .swap import Swap
 from .qwerty import QWERTY
 from .remove_char import RemoveChar
 from .misspelling import Misspelling
+from .digits2words import Digits2Words
 from .dummy.piglatin import PigLatin
 from .dummy.reverser import Reverser

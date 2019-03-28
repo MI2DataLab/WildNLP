@@ -18,3 +18,20 @@ def test_basic():
     assert len(modified.split()) == 2
     assert modified.split()[-1] in ["awfull", "aweful"]
 
+
+def test_homophones():
+    sentence = 'bald'
+    modified = Misspelling(use_homophones=True)(sentence)
+
+    assert modified in ["balled", "bawled"]
+
+    sentence = 'Bald'
+    modified = Misspelling(use_homophones=True)(sentence)
+
+    assert modified in ["Balled", "Bawled"]
+
+    sentence = 'we\'ll'
+    modified = Misspelling(use_homophones=True)(sentence)
+
+    assert modified in ["weal", "wheal", "wheel"]
+
