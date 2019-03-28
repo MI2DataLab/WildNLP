@@ -126,10 +126,9 @@ class CoNLL(Dataset):
             try:
                 for entry in data:
                     line = ""
-                    for token, pos_tag, chunk_tag, ner_tag in zip(entry['tokens'],
-                                                                  entry['pos_tags'],
-                                                                  entry['chunk_tags'],
-                                                                  entry['ner_tags']):
+                    for token, pos_tag, chunk_tag, ner_tag \
+                        in zip(entry['tokens'], entry['pos_tags'],
+                               entry['chunk_tags'], entry['ner_tags']):
                         line += " ".join([token, pos_tag, chunk_tag, ner_tag]) + '\n'
                     lines.append(line)
 
