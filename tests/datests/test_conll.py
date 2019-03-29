@@ -3,7 +3,7 @@ import os
 import tempfile
 
 from wildnlp.datasets import CoNLL
-from wildnlp.aspects import Reverser
+from wildnlp.aspects.dummy import Reverser
 from wildnlp.aspects.utils import compose
 
 

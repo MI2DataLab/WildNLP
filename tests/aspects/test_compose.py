@@ -1,5 +1,5 @@
 from wildnlp.aspects.utils import compose
-from wildnlp.aspects import PigLatin, Reverser
+from wildnlp.aspects.dummy import PigLatin, Reverser
 
 
 def test_single_word_piglatin_first():

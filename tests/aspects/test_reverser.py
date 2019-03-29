@@ -1,4 +1,4 @@
-from wildnlp.aspects import Reverser
+from wildnlp.aspects.dummy import Reverser
 
 
 def test_single_word():

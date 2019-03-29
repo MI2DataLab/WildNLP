@@ -9,14 +9,20 @@ class QWERTY(Aspect):
     """Simualtes errors made while writing on a QWERTY-type keyboard.
     Characters are swapped with their neighbors on the keyboard.
 
-    .. warning:: Uses random numbers, default seed is 42.
+    .. caution:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, transform_percentage=1, seed=42):
+    def __init__(self, words_percentage=1, characters_percentage=10,
+                 seed=42):
         """
 
-        :param transform_percentage: Maximum percentage of words in a
-            sentence that should be transformed.
+        :param words_percentage: Percentage of words in a
+            sentence that should be transformed. Nevertheless, always at
+            least single word should be transformed..
+
+        :param characters_percentage: Percentage of characters in a
+            word that should be transformed. Nevertheless, always at
+            least single character should be transformed.
 
         :param seed: Random seed.
         """
@@ -24,9 +30,14 @@ class QWERTY(Aspect):
         # TODO According to the original implementation
         #     it seem's that the variable should default to 1
         #     (when it was referring to absolute numbers)
-        if transform_percentage > 1:
-            transform_percentage /= 100.
-        self._transform_percentage = transform_percentage
+        if words_percentage > 1:
+            words_percentage /= 100.
+
+        if characters_percentage > 1:
+            characters_percentage /= 100.
+
+        self._words_percentage = words_percentage
+        self._characters_percentage = characters_percentage
 
         self._qwerty_mistakes = self._load_qwerty_mistakes()
 
@@ -47,7 +58,8 @@ class QWERTY(Aspect):
         random.shuffle(tokens_idx)
 
         selected_tokens =\
-            sorted(tokens_idx[:self._percentage_to_number(len(tokens))])
+            sorted(tokens_idx[:self._percentage_to_num(
+                tokens, self._words_percentage)])
 
         modified = []
         for i, token in enumerate(tokens):
@@ -60,13 +72,28 @@ class QWERTY(Aspect):
     def _transform_token(self, token):
 
         try:
-            selected_char = random.choice(token)
-            possible_mistakes = self._qwerty_mistakes[selected_char.lower()]
-            mistake = random.choice(possible_mistakes)
-            occurrences = random.randint(1, token.count(selected_char))
-            transformed_token = token.replace(selected_char, mistake, occurrences)
+            selected_chars = [i for i, _ in enumerate(token)]
+            random.shuffle(selected_chars)
 
-        except (IndexError, KeyError):
+            selected_chars = \
+                sorted(selected_chars[:self._percentage_to_num(
+                    token, self._characters_percentage)])
+
+            transformed_token = ""
+            for i, char in enumerate(token):
+                if i in selected_chars:
+                    possible_mistakes =\
+                        self._qwerty_mistakes[char.lower()]
+                    mistake = random.choice(possible_mistakes)
+
+                    if char.isupper():
+                        char = mistake.upper()
+                    else:
+                        char = mistake
+
+                transformed_token += char
+
+        except KeyError:
             transformed_token = token
 
         return transformed_token
@@ -81,9 +108,12 @@ class QWERTY(Aspect):
 
         return mistakes
 
-    def _percentage_to_number(self, num_tokens):
-        return int(self._transform_percentage * num_tokens)
-
+    @staticmethod
+    def _percentage_to_num(array, percentage):
+        # Ensure that at least one item will be transformed.
+        if percentage == 0:
+            return 0
+        return max(1, int(len(array) * percentage))
 
 
 

@@ -91,6 +91,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#after-applying-the-aspects">After applying the aspects</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-the-dataset">Saving the dataset</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aspects.html">Aspects</a></li>
@@ -183,7 +184,9 @@
 <div class="section" id="corrupting-a-text">
 <h2>Corrupting a text<a class="headerlink" href="#corrupting-a-text" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+
 <span class="n">modified</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">Reverser</span><span class="p">())</span>
 </pre></div>
 </td></tr></table></div>
@@ -238,6 +241,29 @@
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="saving-the-dataset">
+<h2>Saving the dataset<a class="headerlink" href="#saving-the-dataset" title="Permalink to this headline">¶</a></h2>
+<p>Serialized dataset will have exactly the same
+format as the original dataset before modification.</p>
+<p>It means that you don’t have to modify your existing code to
+test robustness of your models. Simply modify a dataset, save the modified
+version and provide it as an input to your existing
+pipeline instead of the original file.</p>
+<p><em>Note: in this example no file will be saved.</em></p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.datasets</span> <span class="kn">import</span> <span class="n">SampleDataset</span>
+
+<span class="n">dataset</span> <span class="o">=</span> <span class="n">SampleDataset</span><span class="p">()</span>
+<span class="n">dataset</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+
+<span class="n">dataset</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;&lt;path_to_file&gt;&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
 </div>
 </div>
 

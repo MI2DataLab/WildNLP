@@ -24,6 +24,7 @@ Corrupting a text
   :linenos:
 
   from wildnlp.aspects import Reverser
+  
   modified = dataset.apply(Reverser())
 
 Full example with multiple corruptors
@@ -63,3 +64,26 @@ After applying the aspects
 >>> print(modified)
 ['ninnamgay isay aay edaelray inay niylppagay eedpay ninraelgay toay arutanlay gaugnaleay nissecorpgay', 'ninnamgay ahsay erohtuaocday nidaelgay koobtxetsay onay acitsitatslay ehcaorppasay toay arutanlay gaugnaleay nissecorpgay']
 
+
+Saving the dataset
+------------------
+Serialized dataset will have exactly the same
+format as the original dataset before modification.
+
+It means that you don't have to modify your existing code to
+test robustness of your models. Simply modify a dataset, save the modified
+version and provide it as an input to your existing
+pipeline instead of the original file.
+
+*Note: in this example no file will be saved.*
+
+
+.. code-block:: python
+  :linenos:
+
+  from wildnlp.datasets import SampleDataset
+
+  dataset = SampleDataset()
+  dataset.load()
+
+  dataset.save(data.data, '<path_to_file>')

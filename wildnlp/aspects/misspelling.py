@@ -7,18 +7,18 @@ from .base import Aspect
 
 class Misspelling(Aspect):
     """Misspells words appearing in the Wikipedia list of
-    commonly misspelled English words (default):
+    **commonly misspelled English words** (default):
     https://en.wikipedia.org/wiki/Commonly_misspelled_English_words
 
-    or homophones:
-    https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/Homophones
+    .. tip:: You can use **homophones** instead:
+        https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/Homophones
 
     If a word has more then one common misspelling, the replacement
     is selected randomly.
 
     *All words that have any misspellings listed will be replaced.*
 
-    .. warning:: Uses random numbers, default seed is 42.
+    .. caution:: Uses random numbers, default seed is 42.
     """
 
     def __init__(self, use_homophones=False, seed=42):

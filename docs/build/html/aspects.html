@@ -83,17 +83,16 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick start quide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Aspects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#base-class">Base class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-wildnlp.aspects.utils">Utility functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#characters-swapping">Characters swapping</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#articleswapper">ArticleSwapper</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#characterswapper">CharacterSwapper</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#dummy-aspects">Dummy aspects</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#reverser">Reverser</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#piglatin">PigLatin</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#articles">Articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#characters-removal">Characters removal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#characters-swapping">Characters swapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#digits2words">Digits2Words</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#misspelling">Misspelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#punctuation">Punctuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#qwerty">QWERTY</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sentiment-words-masking">Sentiment words masking</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
@@ -165,6 +164,58 @@
 <h1>Aspects<a class="headerlink" href="#aspects" title="Permalink to this headline">¶</a></h1>
 <p>Functions that can be applied to sentences to corrupt them in a controled way.
 Corrupted sentences can be then used to test NLP models’ robustness.</p>
+<div class="section" id="base-class">
+<h2>Base class<a class="headerlink" href="#base-class" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.base.Aspect">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.base.</code><code class="descname">Aspect</code><a class="reference internal" href="_modules/wildnlp/aspects/base.html#Aspect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.base.Aspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base, abstract class. All the aspects
+must implement the __call__ method.</p>
+<dl class="method">
+<dt id="wildnlp.aspects.base.Aspect.__call__">
+<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/base.html#Aspect.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.base.Aspect.__call__" title="Permalink to this definition">¶</a></dt>
+<dd><p>We want to directly call
+objects of the Aspect class for easy chaining.
+This function will be applied to sentences.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="wildnlp.aspects.base.Aspect._detokenize">
+<em class="property">static </em><code class="descname">_detokenize</code><span class="sig-paren">(</span><em>tokens</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/base.html#Aspect._detokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.base.Aspect._detokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join tokens into tokens including punctuation
+and special characters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>tokens</strong> – List of tokens.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">A sentence as a single string.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="wildnlp.aspects.base.Aspect._tokenize">
+<em class="property">static </em><code class="descname">_tokenize</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/base.html#Aspect._tokenize"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.base.Aspect._tokenize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Split text into tokens including punctuation
+and special characters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>sentence</strong> – A sentences as a single string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">List of tokens.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-wildnlp.aspects.utils">
 <span id="utility-functions"></span><h2>Utility functions<a class="headerlink" href="#module-wildnlp.aspects.utils" title="Permalink to this headline">¶</a></h2>
 <dl class="function">
@@ -184,22 +235,20 @@ Corrupted sentences can be then used to test NLP models’ robustness.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="characters-swapping">
-<h2>Characters swapping<a class="headerlink" href="#characters-swapping" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="articleswapper">
-<h3>ArticleSwapper<a class="headerlink" href="#articleswapper" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="articles">
+<h2>Articles<a class="headerlink" href="#articles" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="wildnlp.aspects.articles.ArticleSwapper">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.articles.</code><code class="descname">ArticleSwapper</code><span class="sig-paren">(</span><em>swap_probability=0.5</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/articles.html#ArticleSwapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.articles.ArticleSwapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
+<dt id="wildnlp.aspects.articles.Articles">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.articles.</code><code class="descname">Articles</code><span class="sig-paren">(</span><em>swap_probability=0.5</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/articles.html#Articles"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.articles.Articles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
 <p>Randomly removes or swaps articles into wrong ones.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
 <p class="last">Uses random numbers, default seed is 42.</p>
 </div>
 <dl class="method">
-<dt id="wildnlp.aspects.articles.ArticleSwapper.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>swap_probability=0.5</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/articles.html#ArticleSwapper.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.articles.ArticleSwapper.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="wildnlp.aspects.articles.Articles.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>swap_probability=0.5</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/articles.html#Articles.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.articles.Articles.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -218,30 +267,38 @@ Defaults to 0.5.</li>
 </dd></dl>
 
 </div>
-<div class="section" id="characterswapper">
-<h3>CharacterSwapper<a class="headerlink" href="#characterswapper" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="characters-removal">
+<h2>Characters removal<a class="headerlink" href="#characters-removal" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="wildnlp.aspects.swap.CharacterSwapper">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.swap.</code><code class="descname">CharacterSwapper</code><span class="sig-paren">(</span><em>num_words_to_swap</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/swap.html#CharacterSwapper"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.swap.CharacterSwapper" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
-<p>Randomly swaps two characters within a word, excluding punctuations.
-It’s possible that the same two characters will be swapped which, so
-the word won’t be changed, for example <cite>letter</cite> can become <cite>letter</cite>
-after swapping.</p>
-<div class="admonition warning">
-<p class="first admonition-title">Warning</p>
+<dt id="wildnlp.aspects.remove_char.RemoveChar">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.remove_char.</code><code class="descname">RemoveChar</code><span class="sig-paren">(</span><em>char=None</em>, <em>words_percentage=50</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/remove_char.html#RemoveChar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.remove_char.RemoveChar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Randomly removes characters from words.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that you may specify white space as a character to be removed
+but it’ll be processed differently.</p>
+</div>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
 <p class="last">Uses random numbers, default seed is 42.</p>
 </div>
 <dl class="method">
-<dt id="wildnlp.aspects.swap.CharacterSwapper.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>num_words_to_swap</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/swap.html#CharacterSwapper.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.swap.CharacterSwapper.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="wildnlp.aspects.remove_char.RemoveChar.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>char=None</em>, <em>words_percentage=50</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/remove_char.html#RemoveChar.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.remove_char.RemoveChar.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>num_words_to_swap</strong> – Maximum number of words in a sentence
-that should be swapped.</li>
+<li><strong>words_percentage</strong> – Percentage of words in a
+sentence that should be transformed. Nevertheless, always at
+least single word should be transformed..</li>
+<li><strong>characters_percentage</strong> – Percentage of characters in a
+word that should be transformed. Nevertheless, always at
+least single character should be removed.</li>
+<li><strong>char</strong> – If specified only that character will be randomly removed.
+The specified character can also be a white space.</li>
 <li><strong>seed</strong> – Random seed.</li>
 </ul>
 </td>
@@ -253,47 +310,223 @@ that should be swapped.</li>
 </dd></dl>
 
 </div>
-</div>
-<div class="section" id="dummy-aspects">
-<h2>Dummy aspects<a class="headerlink" href="#dummy-aspects" title="Permalink to this headline">¶</a></h2>
-<p>Convenient for testing. Shouldn’t be used for actual
-transformation of datasets.</p>
-<div class="section" id="reverser">
-<h3>Reverser<a class="headerlink" href="#reverser" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="characters-swapping">
+<h2>Characters swapping<a class="headerlink" href="#characters-swapping" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="wildnlp.aspects.dummy.reverser.Reverser">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.dummy.reverser.</code><code class="descname">Reverser</code><a class="reference internal" href="_modules/wildnlp/aspects/dummy/reverser.html#Reverser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.reverser.Reverser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
-<p>Reverse all characters in words.</p>
+<dt id="wildnlp.aspects.swap.Swap">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.swap.</code><code class="descname">Swap</code><span class="sig-paren">(</span><em>transform_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/swap.html#Swap"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.swap.Swap" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Randomly swaps two characters within a word, excluding punctuations.
+It’s possible that the same two characters will be swapped, so
+the word won’t be changed, for example <cite>letter</cite> can become <cite>letter</cite>
+after swapping.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
 <dl class="method">
-<dt id="wildnlp.aspects.dummy.reverser.Reverser.__call__">
-<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/dummy/reverser.html#Reverser.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.reverser.Reverser.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>We want to directly call
-objects of the Aspect class for easy chaining.
-This function will be applied to sentences.</p>
+<dt id="wildnlp.aspects.swap.Swap.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>transform_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/swap.html#Swap.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.swap.Swap.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>transform_percentage</strong> – Maximum percentage of words in a
+sentence that should be transformed.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
 
 </div>
-<div class="section" id="piglatin">
-<h3>PigLatin<a class="headerlink" href="#piglatin" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="digits2words">
+<h2>Digits2Words<a class="headerlink" href="#digits2words" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="wildnlp.aspects.dummy.piglatin.PigLatin">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.dummy.piglatin.</code><code class="descname">PigLatin</code><a class="reference internal" href="_modules/wildnlp/aspects/dummy/piglatin.html#PigLatin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.piglatin.PigLatin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></p>
-<p>See wikipedia <a class="reference external" href="https://en.wikipedia.org/wiki/Pig_Latin">https://en.wikipedia.org/wiki/Pig_Latin</a></p>
+<dt id="wildnlp.aspects.digits2words.Digits2Words">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.digits2words.</code><code class="descname">Digits2Words</code><a class="reference internal" href="_modules/wildnlp/aspects/digits2words.html#Digits2Words"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.digits2words.Digits2Words" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Converts numbers into words.
+Handles floating numbers as well.</p>
+<p><em>All numbers will be converted</em></p>
+</dd></dl>
+
+</div>
+<div class="section" id="misspelling">
+<h2>Misspelling<a class="headerlink" href="#misspelling" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.misspelling.Misspelling">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.misspelling.</code><code class="descname">Misspelling</code><span class="sig-paren">(</span><em>use_homophones=False</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/misspelling.html#Misspelling"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.misspelling.Misspelling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Misspells words appearing in the Wikipedia list of
+<strong>commonly misspelled English words</strong> (default):
+<a class="reference external" href="https://en.wikipedia.org/wiki/Commonly_misspelled_English_words">https://en.wikipedia.org/wiki/Commonly_misspelled_English_words</a></p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can use <strong>homophones</strong> instead:
+<a class="reference external" href="https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/Homophones">https://en.wikipedia.org/wiki/Wikipedia:Lists_of_common_misspellings/Homophones</a></p>
+</div>
+<p>If a word has more then one common misspelling, the replacement
+is selected randomly.</p>
+<p><em>All words that have any misspellings listed will be replaced.</em></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
 <dl class="method">
-<dt id="wildnlp.aspects.dummy.piglatin.PigLatin.__call__">
-<code class="descname">__call__</code><span class="sig-paren">(</span><em>sentence</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/dummy/piglatin.html#PigLatin.__call__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.dummy.piglatin.PigLatin.__call__" title="Permalink to this definition">¶</a></dt>
-<dd><p>We want to directly call
-objects of the Aspect class for easy chaining.
-This function will be applied to sentences.</p>
+<dt id="wildnlp.aspects.misspelling.Misspelling.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>use_homophones=False</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/misspelling.html#Misspelling.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.misspelling.Misspelling.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>use_homophones</strong> – If True list of homophones will be used
+to replace words.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
 
 </div>
+<div class="section" id="punctuation">
+<h2>Punctuation<a class="headerlink" href="#punctuation" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.punctuation.Punctuation">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.punctuation.</code><code class="descname">Punctuation</code><span class="sig-paren">(</span><em>char='</em>, <em>'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/punctuation.html#Punctuation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.punctuation.Punctuation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Randomly adds or removes specified punctuation marks.
+The implementation guarantees that punctuation marks won’t be
+appended to the original ones or won’t replace them after removal.</p>
+<p>With default settings all occurrences of the specified punctuation
+mark will be removed.</p>
+<ul>
+<li><p class="first">Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span><span class="p">,</span> <span class="n">have</span> <span class="n">a</span> <span class="n">comma</span><span class="o">.</span>
+
+<span class="n">Possible</span> <span class="n">transformations</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Sentence</span> <span class="n">have</span><span class="p">,</span> <span class="n">a</span> <span class="n">comma</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Sentence</span><span class="p">,</span> <span class="n">have</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">comma</span><span class="o">.</span>
+
+<span class="n">Impossible</span> <span class="n">transformations</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Sentence</span><span class="p">,,</span> <span class="n">have</span> <span class="n">a</span> <span class="n">comma</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.punctuation.Punctuation.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>char='</em>, <em>'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/punctuation.html#Punctuation.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.punctuation.Punctuation.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>char</strong> – Punctuation mark that will be removed or
+added to sentences.</li>
+<li><strong>add_percentage</strong> – Max percentage of white spaces in a sentence
+to be prepended with punctuation marks.</li>
+<li><strong>remove_percentage</strong> – Max percentage of existing punctuation marks
+that will be removed.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="qwerty">
+<h2>QWERTY<a class="headerlink" href="#qwerty" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.qwerty.QWERTY">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.qwerty.</code><code class="descname">QWERTY</code><span class="sig-paren">(</span><em>words_percentage=1</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/qwerty.html#QWERTY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.qwerty.QWERTY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Simualtes errors made while writing on a QWERTY-type keyboard.
+Characters are swapped with their neighbors on the keyboard.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.qwerty.QWERTY.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>words_percentage=1</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/qwerty.html#QWERTY.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.qwerty.QWERTY.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>words_percentage</strong> – Percentage of words in a
+sentence that should be transformed. Nevertheless, always at
+least single word should be transformed..</li>
+<li><strong>characters_percentage</strong> – Percentage of characters in a
+word that should be transformed. Nevertheless, always at
+least single character should be transformed.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="sentiment-words-masking">
+<h2>Sentiment words masking<a class="headerlink" href="#sentiment-words-masking" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.sentiment_masking.SentimentMasking">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.sentiment_masking.</code><code class="descname">SentimentMasking</code><span class="sig-paren">(</span><em>char='*'</em>, <em>use_positive=False</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/sentiment_masking.html#SentimentMasking"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.sentiment_masking.SentimentMasking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>This aspect reflects attempts made by Internet users
+to mask profanity or hate speech in online forums to evade moderation.
+We perform masking (replacing random, single character with for example an asterisk)
+of negative (or positive for completeness) words from Opinion Lexicon:
+<a class="reference external" href="http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html">http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html</a></p>
+<p><em>All words that are listed will be transformed.</em></p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.sentiment_masking.SentimentMasking.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>char='*'</em>, <em>use_positive=False</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/sentiment_masking.html#SentimentMasking.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.sentiment_masking.SentimentMasking.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>char</strong> – A character that will be used to mask words.</li>
+<li><strong>use_positive</strong> – If True positive (instead of negative)
+words will be masked.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 </div>
 

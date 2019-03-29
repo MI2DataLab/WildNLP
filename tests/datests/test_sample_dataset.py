@@ -1,5 +1,5 @@
 from wildnlp.datasets import SampleDataset
-from wildnlp.aspects import Reverser
+from wildnlp.aspects.dummy import Reverser
 
 
 def test_apply_reverser():

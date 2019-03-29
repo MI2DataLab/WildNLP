@@ -23,7 +23,7 @@ class Aspect(ABC):
 
         :return: List of tokens.
         """
-        return re.findall(r"[\w\'-]+|[^\s\w]", sentence)
+        return re.findall(r"[\w\'\-()]+|[^\s\w]", sentence)
 
     @staticmethod
     def _detokenize(tokens):

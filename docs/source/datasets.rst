@@ -3,12 +3,11 @@ Datasets
 Details regarding popular datasets for various NLP problems
 that are supported by the wild-nlp.
 
-Sample dataset
---------------
-
-.. autoclass:: wildnlp.datasets.sample_dataset.SampleDataset
+Base class
+----------
+.. autoclass:: wildnlp.datasets.base.Dataset
    :members:
-   :show-inheritance:
+   :private-members:
 
 CoNLL 2003
 --------------

@@ -15,9 +15,4 @@ def test_basic():
     sentence = 'Famous 12. 2 to midnight.'
     modified = Digits2Words()(sentence)
 
-    assert modified == 'Famous twelve. two to midnight'
-
-
-
-
-
+    assert modified == 'Famous twelve. two to midnight.'

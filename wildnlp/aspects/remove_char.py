@@ -1,3 +1,4 @@
+import math
 import random
 
 from .base import Aspect
@@ -6,15 +7,22 @@ from .base import Aspect
 class RemoveChar(Aspect):
     """Randomly removes characters from words.
 
-    .. warning:: Uses random numbers, default seed is 42.
+    .. Note:: Note that you may specify white space as a character to be removed
+              but it'll be processed differently.
+    .. caution:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, char=None, transform_percentage=100, seed=42):
+    def __init__(self, char=None, words_percentage=50,
+                 characters_percentage=10, seed=42):
         """
 
-        :param transform_percentage: Maximum percentage of words in a
-            sentence that should be transformed. Punctuation marks and
-            special characters are ignored.
+        :param words_percentage: Percentage of words in a
+            sentence that should be transformed. Nevertheless, always at
+            least single word should be transformed..
+
+        :param characters_percentage: Percentage of characters in a
+            word that should be transformed. Nevertheless, always at
+            least single character should be removed.
 
         :param char: If specified only that character will be randomly removed.
              The specified character can also be a white space.
@@ -22,10 +30,14 @@ class RemoveChar(Aspect):
         :param seed: Random seed.
         """
 
-        if transform_percentage > 1:
-            transform_percentage /= 100.
+        if words_percentage > 1:
+            words_percentage /= 100.
 
-        self._transform_percentage = transform_percentage
+        if characters_percentage > 1:
+            characters_percentage /= 100.
+
+        self._words_percentage = words_percentage
+        self._characters_percentage = characters_percentage
         self._char = char
 
         random.seed(seed)
@@ -49,36 +61,52 @@ class RemoveChar(Aspect):
         random.shuffle(tokens_filtered)
 
         selected_tokens =\
-            sorted(tokens_filtered[:self._percentage_to_number(
-                len(tokens_filtered))])
+            sorted(tokens_filtered[:self._percentage_to_num(
+                tokens_filtered, self._words_percentage)])
 
         modified = []
         for i, token in enumerate(tokens):
             if i in selected_tokens:
 
                 if self._char:
-                    selected_char = self._char
+                    token = token.replace(self._char, '',
+                                          self._percentage_to_num(
+                                              token,
+                                              self._characters_percentage))
                 else:
-                    selected_char = random.choice(token)
+                    # TODO: Here's the change,
+                    #  now all the characters are selected randomly.
+                    selected_chars = [i for i, _ in enumerate(token)]
+                    random.shuffle(selected_chars)
 
-                try:
-                    occurrences =\
-                        random.randint(1, token.count(selected_char))
-                    token = token.replace(selected_char, '', occurrences)
-                except ValueError:
-                    pass
+                    selected_chars =\
+                        sorted(selected_chars[:self._percentage_to_num(
+                            token, self._characters_percentage)])
+
+                    modified_token = ""
+                    for j, char in enumerate(token):
+                        if j in selected_chars:
+                            char = ''
+                        modified_token += char
+
+                    token = modified_token
 
             modified.append(token)
 
         return modified
 
     def _process_white_space(self, sentence):
-        occurrences = self._percentage_to_number(sentence.count(' '))
+        occurrences = int((sentence.count(' ') * self._words_percentage))
 
         return sentence.replace(' ', '', occurrences)
 
-    def _percentage_to_number(self, num_tokens):
-        return int(self._transform_percentage * num_tokens)
+    @staticmethod
+    def _percentage_to_num(array, percentage):
+        if percentage == 0:
+            return 0
+        # Ensure that at least one item will be transformed.
+        return max(1, int(len(array) * percentage))
+
 
 
 

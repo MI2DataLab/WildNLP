@@ -5,11 +5,11 @@ from .base import Aspect
 
 class Swap(Aspect):
     """Randomly swaps two characters within a word, excluding punctuations.
-    It's possible that the same two characters will be swapped which, so
+    It's possible that the same two characters will be swapped, so
     the word won't be changed, for example `letter` can become `letter`
     after swapping.
 
-    .. warning:: Uses random numbers, default seed is 42.
+    .. caution:: Uses random numbers, default seed is 42.
     """
 
     def __init__(self, transform_percentage=100, seed=42):

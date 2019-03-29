@@ -9,7 +9,7 @@ class Digits2Words(Aspect):
     """Converts numbers into words.
     Handles floating numbers as well.
 
-    *All numbers will be converted"
+    *All numbers will be converted*
     """
 
     def __call__(self, sentence):
@@ -28,14 +28,14 @@ class Digits2Words(Aspect):
             append_dot = False
             token_modified = token
 
+            # Handle case when a number is at the end of a sentence.
+            if token_modified[-1] == '.':
+                token_modified = token_modified[:-1]
+                append_dot = True
+
             # Handle US format like 123.123,50
             if all(char in token for char in ['.', ',']):
                 token_modified = token.replace('.', '').replace(',', '.')
-
-            # Handle case when a number is at the end of a sentence.
-            elif token_modified[-1] == '.':
-                token_modified = token_modified[:-1]
-                append_dot = True
 
             try:
                 number = float(token_modified)
@@ -46,7 +46,7 @@ class Digits2Words(Aspect):
                 #    Not so easy.
 
             except ValueError:
-                append_dot = False
+                pass
 
             modified.append(token_modified)
 

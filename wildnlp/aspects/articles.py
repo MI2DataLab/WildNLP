@@ -6,7 +6,7 @@ from .base import Aspect
 class Articles(Aspect):
     """Randomly removes or swaps articles into wrong ones.
 
-    .. warning:: Uses random numbers, default seed is 42.
+    .. caution:: Uses random numbers, default seed is 42.
     """
 
     def __init__(self, swap_probability=0.5, seed=42):
