@@ -30,10 +30,10 @@ class RemoveChar(Aspect):
         :param seed: Random seed.
         """
 
-        if words_percentage > 1:
+        if words_percentage >= 1:
             words_percentage /= 100.
 
-        if characters_percentage > 1:
+        if characters_percentage >= 1:
             characters_percentage /= 100.
 
         self._words_percentage = words_percentage

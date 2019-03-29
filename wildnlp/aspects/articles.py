@@ -19,6 +19,12 @@ class Articles(Aspect):
         """
 
         self._articles = ['a', 'an', 'the', '']
+
+        if swap_probability > 1 or swap_probability < 0:
+            swap_probability = 0.5
+            print('swap_probability should be in range (0,1), '
+                  'defaults to 0.5.')
+
         self._swap_probability = swap_probability
         random.seed(seed)
 

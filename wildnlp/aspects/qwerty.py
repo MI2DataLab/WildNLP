@@ -30,10 +30,10 @@ class QWERTY(Aspect):
         # TODO According to the original implementation
         #     it seem's that the variable should default to 1
         #     (when it was referring to absolute numbers)
-        if words_percentage > 1:
+        if words_percentage >= 1:
             words_percentage /= 100.
 
-        if characters_percentage > 1:
+        if characters_percentage >= 1:
             characters_percentage /= 100.
 
         self._words_percentage = words_percentage

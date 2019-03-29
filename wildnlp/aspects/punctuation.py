@@ -40,9 +40,9 @@ class Punctuation(Aspect):
         :param seed: Random seed.
         """
 
-        if add_percentage > 1:
+        if add_percentage >= 1:
             add_percentage /= 100.
-        if remove_percentage > 1:
+        if remove_percentage >= 1:
             remove_percentage /= 100.
 
         if isinstance(char, str) and len(char) == 1:

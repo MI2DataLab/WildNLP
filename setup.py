@@ -8,18 +8,19 @@ with open("README.md", "r") as fh:
 
 setup(
     name="wild-nlp",
-    version="0.0.3",
+    version="1.0.0",
     author="Dominika Basaj, Barbara Rychalska, Alicja Gosiewska, Adam Słucki",
     author_email="adam.slucki@gmail.com",
     description=("Text aspects for nlp models"),
     license="BSD",
     url="https://github.com/MI2DataLab/WildNLP",
     packages=find_packages(),
+    include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
     classifiers=[
-        "Development Status :: 3 - Alpha",
-        "Topic :: Utilities",
+        "Development Status :: 4 - Beta",
+        "Topic :: Text Processing",
         "License :: OSI Approved :: BSD License",
     ],
     install_requires=[

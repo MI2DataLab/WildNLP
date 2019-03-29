@@ -16,6 +16,9 @@ def test_advanced():
 
     assert 'the' not in modified.split()
 
+    aspect = Articles(swap_probability=230, seed=42)
+    assert aspect._swap_probability <= 1
+
 
 def test_multiple_sentences():
     sentences = 'This is a dollar sign - $. '\

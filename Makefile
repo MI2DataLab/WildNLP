@@ -1,5 +1,11 @@
-.PHONY: build, dev, test
+.PHONY: build, dev, test, clean
 IMAGE_NAME=wildnlp
+
+clean:
+	rm -rf build
+	rm -rf dist
+	rm -rf wild_nlp.egg-info
+	rm -rf .pytest_cache
 
 build:
 	docker build -t $(IMAGE_NAME) .

@@ -226,12 +226,20 @@ and special characters.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>functions</strong> – an arbitrary object(s) of the Callable instance.</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>functions</strong> – Object(s) of the Callable instance.</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">chained function</td>
 </tr>
 </tbody>
 </table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects.utils</span> <span class="k">import</span> <span class="n">compose</span>
+<span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="k">import</span> <span class="n">Swap</span><span class="p">,</span> <span class="n">QWERTY</span>
+
+<span class="n">composed_aspect</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="n">Swap</span><span class="p">(),</span> <span class="n">QWERTY</span><span class="p">())</span>
+<span class="n">modified_text</span> <span class="o">=</span> <span class="n">composed_aspect</span><span class="p">(</span><span class="s1">&#39;Text to corrupt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
