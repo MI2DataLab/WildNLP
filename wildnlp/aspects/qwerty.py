@@ -6,7 +6,7 @@ from .base import Aspect
 
 
 class QWERTY(Aspect):
-    """Simualtes errors made while writing on a QWERTY-type keyboard.
+    """Simulates errors made while writing on a QWERTY-type keyboard.
     Characters are swapped with their neighbors on the keyboard.
 
     .. caution:: Uses random numbers, default seed is 42.
@@ -17,12 +17,12 @@ class QWERTY(Aspect):
         """
 
         :param words_percentage: Percentage of words in a
-            sentence that should be transformed. Nevertheless, always at
-            least single word should be transformed..
+            sentence that should be transformed. If greater than 0,
+            always at least single word will be transformed.
 
         :param characters_percentage: Percentage of characters in a
-            word that should be transformed. Nevertheless, always at
-            least single character should be transformed.
+            word that should be transformed. If greater than 0
+            always at least single character will be transformed.
 
         :param seed: Random seed.
         """

@@ -17,12 +17,12 @@ class RemoveChar(Aspect):
         """
 
         :param words_percentage: Percentage of words in a
-            sentence that should be transformed. Nevertheless, always at
-            least single word should be transformed..
+            sentence that should be transformed. If greater than 0,
+            always at least single word will be transformed.
 
         :param characters_percentage: Percentage of characters in a
-            word that should be transformed. Nevertheless, always at
-            least single character should be removed.
+            word that should be transformed. If greater than 0
+            always at least single character will be transformed.
 
         :param char: If specified only that character will be randomly removed.
              The specified character can also be a white space.

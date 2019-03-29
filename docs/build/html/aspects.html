@@ -292,11 +292,11 @@ but it’ll be processed differently.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>words_percentage</strong> – Percentage of words in a
-sentence that should be transformed. Nevertheless, always at
-least single word should be transformed..</li>
+sentence that should be transformed. If greater than 0,
+always at least single word will be transformed.</li>
 <li><strong>characters_percentage</strong> – Percentage of characters in a
-word that should be transformed. Nevertheless, always at
-least single character should be removed.</li>
+word that should be transformed. If greater than 0
+always at least single character will be transformed.</li>
 <li><strong>char</strong> – If specified only that character will be randomly removed.
 The specified character can also be a white space.</li>
 <li><strong>seed</strong> – Random seed.</li>
@@ -459,7 +459,7 @@ that will be removed.</li>
 <dt id="wildnlp.aspects.qwerty.QWERTY">
 <em class="property">class </em><code class="descclassname">wildnlp.aspects.qwerty.</code><code class="descname">QWERTY</code><span class="sig-paren">(</span><em>words_percentage=1</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/qwerty.html#QWERTY"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.qwerty.QWERTY" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
-<p>Simualtes errors made while writing on a QWERTY-type keyboard.
+<p>Simulates errors made while writing on a QWERTY-type keyboard.
 Characters are swapped with their neighbors on the keyboard.</p>
 <div class="admonition caution">
 <p class="first admonition-title">Caution</p>
@@ -474,11 +474,11 @@ Characters are swapped with their neighbors on the keyboard.</p>
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>words_percentage</strong> – Percentage of words in a
-sentence that should be transformed. Nevertheless, always at
-least single word should be transformed..</li>
+sentence that should be transformed. If greater than 0,
+always at least single word will be transformed.</li>
 <li><strong>characters_percentage</strong> – Percentage of characters in a
-word that should be transformed. Nevertheless, always at
-least single character should be transformed.</li>
+word that should be transformed. If greater than 0
+always at least single character will be transformed.</li>
 <li><strong>seed</strong> – Random seed.</li>
 </ul>
 </td>
