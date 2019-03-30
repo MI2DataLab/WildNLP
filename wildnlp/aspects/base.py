@@ -1,5 +1,7 @@
-from abc import ABC
+import abc
 import re
+
+ABC = abc.ABCMeta('ABC', (object,), {'__slots__': ()})
 
 
 class Aspect(ABC):

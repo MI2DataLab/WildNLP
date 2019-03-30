@@ -1,7 +1,9 @@
 from __future__ import print_function
 
-from abc import ABC
+import abc
 from functools import wraps
+
+ABC = abc.ABCMeta('ABC', (object,), {'__slots__': ()})
 
 
 def file_exists_check(func):

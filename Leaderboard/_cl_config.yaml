@@ -1,0 +1,27 @@
+max_submissions_per_period: 5                               # allows at most 5 submissions per user per period, where period is 24 hours by default
+log_worksheet_uuid: '0xc8188a7fbf0541bfbcde9066cc5cc703'    # uuid of the worksheet to create new run bundles in
+submission_tag: test-competition-aslucki                    # configure the tag that participants use to submit to the competition
+
+# Configure how to mimic the submitted prediction bundles
+predict:
+  mimic:
+  - {new: '0xbcd57bee090b421c982906709c8c27e1', old: '0x4870af25abc94b0687a1927fcec66392'}  # replace `old` bundle with `new` bundle
+
+## Configure how to evaluate the new prediction bundles
+evaluate:
+  # Essentially
+  #     cl run evaluate.py:0x089063eb85b64b239b342405b5ebab57 \
+  #            test.json:0x5538cba32e524fad8b005cd19abb9f95 \
+  #            predictions.json:{predict}/predictions.json --- \
+  #            python evaluate.py test.json predictions.json
+  # where {predict} gets filled in with the uuid of the mimicked bundle above.
+  dependencies:
+  - {child_path: evaluate.py, parent_uuid: '0x089063eb85b64b239b342405b5ebab57'}
+  - {child_path: test.json, parent_uuid: '0x5538cba32e524fad8b005cd19abb9f95'}
+  - {child_path: predictions.json, parent_path: predictions.json, parent_uuid: '{predict}'}
+  command: python evaluate.py test.json predictions.json
+
+# Define how to extract the scores from the evaluation bundle
+score_specs:
+- {key: '/stdout:f1', name: f1}
+- {key: '/stdout:exact_match', name: exact_match}

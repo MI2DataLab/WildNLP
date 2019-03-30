@@ -6,6 +6,8 @@ clean:
 	rm -rf dist
 	rm -rf wild_nlp.egg-info
 	rm -rf .pytest_cache
+	rm -rf tests/aspects/__pycache__
+	rm -rf tests/datests/__pycache__
 
 build:
 	docker build -t $(IMAGE_NAME) .

@@ -1,0 +1,62 @@
+{
+    "config": {
+        "allow_multiple_models": false,
+        "allow_orphans": true,
+        "count_failed_submissions": true,
+        "evaluate": {
+            "command": "python evaluate.py test.json predictions.json",
+            "dependencies": [
+                {
+                    "child_path": "evaluate.py",
+                    "parent_path": "",
+                    "parent_uuid": "0x089063eb85b64b239b342405b5ebab57"
+                },
+                {
+                    "child_path": "test.json",
+                    "parent_path": "",
+                    "parent_uuid": "0x5538cba32e524fad8b005cd19abb9f95"
+                },
+                {
+                    "child_path": "predictions.json",
+                    "parent_path": "predictions.json",
+                    "parent_uuid": "{predict}"
+                }
+            ],
+            "metadata": {},
+            "tag": "competition-evaluate"
+        },
+        "host": "https://worksheets.codalab.org",
+        "log_worksheet_uuid": "0xc8188a7fbf0541bfbcde9066cc5cc703",
+        "make_predictions_public": false,
+        "max_leaderboard_size": 10000,
+        "max_submissions_per_period": 5,
+        "max_submissions_total": 10000,
+        "metadata": {},
+        "predict": {
+            "depth": 10,
+            "metadata": {},
+            "mimic": [
+                {
+                    "new": "0xbcd57bee090b421c982906709c8c27e1",
+                    "old": "0x4870af25abc94b0687a1927fcec66392"
+                }
+            ],
+            "tag": "competition-predict"
+        },
+        "quota_period_seconds": 86400,
+        "refresh_period_seconds": 60,
+        "score_specs": [
+            {
+                "key": "/stdout:f1",
+                "name": "f1"
+            },
+            {
+                "key": "/stdout:exact_match",
+                "name": "exact_match"
+            }
+        ],
+        "submission_tag": "test-competition-aslucki"
+    },
+    "leaderboard": [],
+    "updated": 1553958136.011294
+}

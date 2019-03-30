@@ -1,4 +1,5 @@
 import csv
+from io import open
 import os
 
 from .base import Dataset
