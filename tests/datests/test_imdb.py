@@ -1,8 +1,8 @@
 import csv
 import filecmp
 import os
+import tempfile
 
-import custom_tempfile as tempfile
 from wildnlp.datasets import IMDB
 
 

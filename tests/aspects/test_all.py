@@ -7,7 +7,6 @@ asses if there are no apparent problems with a transformed sentence.
 
 import difflib
 import inspect
-import sys
 
 from wildnlp.aspects import *
 from wildnlp.aspects.base import Aspect
@@ -24,15 +23,13 @@ def test_all():
 
         if issubclass(v, Aspect) and v is not Aspect:
             transformed = v()(sentence)
-            assert isinstance(transformed, str
-                              if sys.version_info[0] >= 3 else basestring)
+            assert isinstance(transformed, str)
             print("\n{}:\n original: {}\n modified: {}\n diff: {}"
                   .format(k, sentence, transformed,
                           color_diff(sentence, transformed)))
 
             transformed_word = v()('Works')
-            assert isinstance(transformed_word, str
-                              if sys.version_info[0] >= 3 else basestring)
+            assert isinstance(transformed_word, str)
 
 
 def color_diff(original, modified):

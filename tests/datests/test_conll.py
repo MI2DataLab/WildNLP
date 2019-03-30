@@ -1,7 +1,7 @@
 import filecmp
 import os
+import tempfile
 
-import custom_tempfile as tempfile
 from wildnlp.datasets import CoNLL
 from wildnlp.aspects.dummy import Reverser
 from wildnlp.aspects.utils import compose

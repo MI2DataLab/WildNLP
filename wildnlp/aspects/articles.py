@@ -1,6 +1,3 @@
-from __future__ import print_function
-
-import copy
 import random
 
 from .base import Aspect
@@ -44,7 +41,7 @@ class Articles(Aspect):
             if token.lower() in self._articles \
                and random.random() < self._swap_probability:
 
-                articles_copy = copy.copy(self._articles)
+                articles_copy = self._articles.copy()
                 articles_copy.remove(token.lower())
                 selected_article = random.choice(articles_copy)
 
