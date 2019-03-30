@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Quick Start Guide &mdash; wild-nlp 0.0.1 documentation</title>
+  <title>Quick Start Guide &mdash; wild-nlp 1.0.1 documentation</title>
   
 
   
@@ -81,10 +81,14 @@
             
             
               <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick start quide</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#loading-a-dataset">Loading a dataset</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#corrupting-a-text">Corrupting a text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#corrupting-a-text">Corrupting a text</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#applying-corruption-to-a-supported-dataset">Applying corruption to a supported dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-a-string">Modifying a string</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#full-example-with-multiple-corruptors">Full example with multiple corruptors</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#the-code">The code</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#the-dataset-s-contents">The dataset’s contents</a></li>
@@ -96,6 +100,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="aspects.html">Aspects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developers.html">How to contribute</a></li>
 </ul>
 
             
@@ -162,7 +167,9 @@
             
   <div class="section" id="quick-start-guide">
 <h1>Quick Start Guide<a class="headerlink" href="#quick-start-guide" title="Permalink to this headline">¶</a></h1>
-<p>5 minutes is enough to start using the module!</p>
+<p><strong>5 minutes</strong> is enough to start using the module!</p>
+<p>See how easy you can enrich your analysis of a NLP model
+with a robustness test.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">wild</span><span class="o">-</span><span class="n">nlp</span>
@@ -183,6 +190,10 @@
 </div>
 <div class="section" id="corrupting-a-text">
 <h2>Corrupting a text<a class="headerlink" href="#corrupting-a-text" title="Permalink to this headline">¶</a></h2>
+<p>There are two usecases. You may either
+apply corruption to a supported dataset or modify an arbtrary string.</p>
+<div class="section" id="applying-corruption-to-a-supported-dataset">
+<h3>Applying corruption to a supported dataset<a class="headerlink" href="#applying-corruption-to-a-supported-dataset" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
@@ -190,6 +201,31 @@
 <span class="n">modified</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">Reverser</span><span class="p">())</span>
 </pre></div>
 </td></tr></table></div>
+</div>
+<div class="section" id="modifying-a-string">
+<h3>Modifying a string<a class="headerlink" href="#modifying-a-string" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+
+<span class="n">modified</span> <span class="o">=</span> <span class="n">Reverser</span><span class="p">()(</span><span class="s1">&#39;A string to be modified.&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>All instances of classes derived from the Aspect class are callable.
+You can think of them as any other functions.</p>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+
+<span class="n">reverser_object</span> <span class="o">=</span> <span class="n">Reverser</span><span class="p">()</span>
+<span class="n">modified</span> <span class="o">=</span> <span class="n">reverser_object</span><span class="p">(</span><span class="s1">&#39;A string to be modified.&#39;</span><span class="p">)</span>
+
+<span class="c1"># Note that this is the same as</span>
+<span class="c1"># modified = Reverser()(&#39;A string to be modified.&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="full-example-with-multiple-corruptors">
 <h2>Full example with multiple corruptors<a class="headerlink" href="#full-example-with-multiple-corruptors" title="Permalink to this headline">¶</a></h2>

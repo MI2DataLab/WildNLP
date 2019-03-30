@@ -1,12 +1,20 @@
 Quick Start Guide
 =================
-5 minutes is enough to start using the module!
+**5 minutes** is enough to start using the module!
+
+See how easy you can enrich your analysis of a NLP model
+with a robustness test.
+
+
+
 
 Installation
 ------------
 ::
 
   pip install wild-nlp
+
+
 
 Loading a dataset
 -----------------
@@ -18,14 +26,45 @@ Loading a dataset
   dataset = SampleDataset()
   dataset.load()
 
+
+
 Corrupting a text
 -----------------
+There are two usecases. You may either
+apply corruption to a supported dataset or modify an arbtrary string.
+
+Applying corruption to a supported dataset
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. code-block:: python
   :linenos:
 
   from wildnlp.aspects import Reverser
   
   modified = dataset.apply(Reverser())
+
+Modifying a string
+~~~~~~~~~~~~~~~~~~
+.. code-block:: python
+  :linenos:
+
+  from wildnlp.aspects import Reverser
+  
+  modified = Reverser()('A string to be modified.')
+
+.. note:: All instances of classes derived from the Aspect class are callable.
+  You can think of them as any other functions.
+
+  .. code-block:: python
+
+    from wildnlp.aspects import Reverser
+
+    reverser_object = Reverser()
+    modified = reverser_object('A string to be modified.')
+
+    # Note that this is the same as 
+    # modified = Reverser()('A string to be modified.')
+
+
 
 Full example with multiple corruptors
 -------------------------------------
@@ -63,6 +102,8 @@ After applying the aspects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 >>> print(modified)
 ['ninnamgay isay aay edaelray inay niylppagay eedpay ninraelgay toay arutanlay gaugnaleay nissecorpgay', 'ninnamgay ahsay erohtuaocday nidaelgay koobtxetsay onay acitsitatslay ehcaorppasay toay arutanlay gaugnaleay nissecorpgay']
+
+
 
 
 Saving the dataset

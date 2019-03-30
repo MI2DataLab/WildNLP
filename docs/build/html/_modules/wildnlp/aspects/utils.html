@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>wildnlp.aspects.utils &mdash; wild-nlp 0.0.1 documentation</title>
+  <title>wildnlp.aspects.utils &mdash; wild-nlp 1.0.1 documentation</title>
   
 
   
@@ -79,9 +79,10 @@
             
             
               <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick start quide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../quickstart.html">Quick Start Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../aspects.html">Aspects</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../datasets.html">Datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developers.html">How to contribute</a></li>
 </ul>
 
             
@@ -162,7 +163,7 @@
 
 <span class="sd">        composed_aspect = compose(Swap(), QWERTY())</span>
 <span class="sd">        modified_text = composed_aspect(&#39;Text to corrupt&#39;)</span>
-<span class="sd">        </span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">functools</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="k">lambda</span> <span class="n">f</span><span class="p">,</span> <span class="n">g</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">g</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
                             <span class="n">functions</span><span class="p">,</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">)</span></div>

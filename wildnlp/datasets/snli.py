@@ -1,3 +1,5 @@
+from __future__ import print_function
+
 import json
 
 from .base import Dataset, file_exists_check
@@ -48,4 +50,3 @@ class SNLI(Dataset):
 
         with open(path, 'w') as f:
             f.write("\n".join(json_strings))
-

@@ -1,4 +1,5 @@
-import math
+from __future__ import division
+
 import random
 
 from .base import Aspect

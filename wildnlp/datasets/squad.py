@@ -43,4 +43,3 @@ class SQuAD(Dataset):
 
         with open(path, 'w') as f:
             json.dump(data, f)
-

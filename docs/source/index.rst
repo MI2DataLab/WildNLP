@@ -6,9 +6,19 @@
 Test NLP models in the wild!
 ============================
 
+Performance of NLP models should be measured not
+only in terms of well established metrics if we want
+to use them in the real life.
+
+This module contains implementation of multiple functions
+designed to corrupt text in a way resembling naturally occuring mistakes (aspects).
+
+
 .. toctree::
    :maxdepth: 2
 
-   Quick start quide <quickstart>
-   Aspects <aspects>
-   Datasets <datasets>
+   quickstart
+   aspects
+   datasets
+   developers
+ 
