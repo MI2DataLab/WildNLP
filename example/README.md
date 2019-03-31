@@ -54,7 +54,7 @@ Underlying data is available here: [remove_char.csv](outputs/remove_char.csv)
 #### BiDAF resilience to QWERTY mispellings
 ![alt QWERTY_plot](outputs/qwerty.png)  
 
-Underlying data is available here: [remove_char.csv](outputs/qwerty.csv)
+Underlying data is available here: [qwerty.csv](outputs/qwerty.csv)
 
 ## Notes
 The script downloads resources from third parties.
