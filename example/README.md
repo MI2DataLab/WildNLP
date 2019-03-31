@@ -51,7 +51,7 @@ and report average F1 score and standard deviation of F1 scores calculated on ea
 
 Underlying data is available here: [remove_char.csv](outputs/remove_char.csv)
 
-#### BiDAF resilience to QWERTY mispellings
+#### BiDAF resilience to QWERTY misspellings
 ![alt QWERTY_plot](outputs/qwerty.png)  
 
 Underlying data is available here: [qwerty.csv](outputs/qwerty.csv)
