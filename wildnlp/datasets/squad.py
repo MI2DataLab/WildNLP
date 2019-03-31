@@ -1,3 +1,4 @@
+import copy
 import json
 
 from .base import Dataset, file_exists_check
@@ -27,7 +28,7 @@ class SQuAD(Dataset):
         leaving other data intact.
         """
 
-        modified = self._data.copy()
+        modified = copy.deepcopy(self._data)
         for entry in modified['data']:
 
             for paragraph in entry['paragraphs']:

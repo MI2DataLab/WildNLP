@@ -13,9 +13,6 @@
     <script id="template" type="x-tmpl-mustache">
 <div class="row">
   <h1>{{config.metadata.name}}</h1>
-  {{#out_of_date}}
-    <div class="alert alert-danger" role="alert">Leaderboard data has gone stale. Try refreshing again in a minute, or clear your browser cache.</div>
-  {{/out_of_date}}
   <p>{{{config.metadata.description}}}</p>
   <p>Max submissions per day: <b>{{config.max_submissions_per_period}}</b>.
   Max submissions total: <b>{{config.max_submissions_total}}.</b></p>
@@ -69,7 +66,7 @@
   $.getJSON(LEADERBOARD_JSON).done(function (data) {
     var now = (new Date).getTime() / 1000;
     var buffer = 100;  // seconds
-    data.out_of_date = now - data.updated - buffer > data.config.refresh_period_seconds;
+
     // Preprocess data
     for (var i = 0; i < data.leaderboard.length; i++) {
       var item = data.leaderboard[i];

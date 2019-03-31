@@ -2,6 +2,7 @@ allennlp==0.8.3
 matplotlib==3.0.3
 numpy==1.16.2
 num2words==0.5.9
+pandas==0.24.2
 pytest==4.2.0
 requests==2.21.0
 Sphinx==1.8.4
