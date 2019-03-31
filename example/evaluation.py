@@ -2,8 +2,8 @@
 Part of the evaluation code was copied from the
 https://github.com/allenai/bi-att-flow/blob/master/squad/evaluate-v1.1.py
 """
-
 from collections import Counter
+import datetime
 import json
 import re
 import string
@@ -58,7 +58,38 @@ def metric_max_over_ground_truths(metric_fn, prediction, ground_truths):
     return max(scores_for_ground_truths)
 
 
+def download_squad(filename):
+    """Downloads SQuAD dataset file
+    if it doesn't exist in the outputs directory.
+    The file is downloaded from third party's directory.
+    """
+
+    if not os.path.isfile(filename):
+        print("Downloading SQuAD datataset.")
+        data = requests.get(
+            'https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json')
+
+        with open(filename, 'w') as f:
+            json.dump(data.json(), f)
+
+
+def create_log_output(mean_scores, severity):
+    """Helper function for creating dictionary
+    with evaluation results.
+    """
+
+    output = dict()
+    output['f1_mean'] = np.mean(mean_scores)
+    output['f1_std'] = np.std(mean_scores)
+    output['severity'] = severity
+
+    return output
+
+
 def calculate_dataset_scores(dataset, predict_func, score_func):
+    """Iterates through dataset and calculates performance score
+    for each entry.
+    """
 
     scores = []
     for entry in dataset:
@@ -73,28 +104,14 @@ def calculate_dataset_scores(dataset, predict_func, score_func):
     return scores
 
 
-def download_squad(filename):
-    if not os.path.isfile(filename):
-        print("Downloading SQuAD datataset.")
-        data = requests.get(
-            'https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v1.1.json')
-
-        with open(filename, 'w') as f:
-            json.dump(data.json(), f)
-
-
-def create_log_output(mean_scores, severity):
-
-    output = dict()
-    output['f1_mean'] = np.mean(mean_scores)
-    output['f1_std'] = np.std(mean_scores)
-    output['severity'] = severity
-
-    return output
-
-
 def evaluate(squad_obj, score_func, predict_func, aspect, limit=10):
+    """Multiply times applies corruption to a dataset and
+    calculates scores and their statistics (mean and std).
+    """
 
+    print("{} | Analysing {} with the original data"
+          .format(datetime.datetime.now().time(),
+                  aspect.__name__))
     f1_original =\
         calculate_dataset_scores(squad_obj.data['data'][:limit],
                                  predict_func, score_func)
@@ -102,8 +119,9 @@ def evaluate(squad_obj, score_func, predict_func, aspect, limit=10):
     results = [create_log_output(means, 0)]
 
     for severity in range(10, 101, 10):
-        print("Analysing {} with severity {}"
-              .format(aspect.__name__, severity))
+        print("{} | Analysing {} with severity {}"
+              .format(datetime.datetime.now().time(),
+                      aspect.__name__, severity))
         try:
             aspect_obj = aspect(words_percentage=severity)
             means = []
@@ -129,6 +147,9 @@ def evaluate(squad_obj, score_func, predict_func, aspect, limit=10):
 def save_plot(main_results, main_results_label,
               comparison_results, comparison_results_label,
               fig_name, suptitle, title):
+
+    """Saves a nice plot of the analysis. It's
+    """
     plt.figure(figsize=(10, 5))
     plt.errorbar(x=list(range(len(main_results))),
                  y=main_results['f1_mean'],
@@ -152,37 +173,43 @@ def save_plot(main_results, main_results_label,
 
 
 if __name__ == '__main__':
-    print(__file__)
 
-    ''''
     BiDAF = Predictor.from_path(
         "https://s3-us-west-2.amazonaws.com/allennlp/models/bidaf-model-2017.09.15-charpad.tar.gz")
 
+    # It's easier to pass function without parameters
+    # so here's the wrapper for allennlp predictor.
     def bidaf_predict(context, question):
         return BiDAF.predict(passage=context,
                              question=question)['best_span_str']
 
-    download_squad('dev-v1.1.json')
+
+    current_dir = os.path.abspath(os.path.dirname(__file__))
+    download_squad(os.path.join(current_dir, 'outputs', 'dev-v1.1.json'))
 
     squad = SQuAD()
-    squad.load('dev-v1.1.json')
+    squad.load(os.path.join(current_dir, 'outputs', 'dev-v1.1.json'))
 
+    # Run evaluation for RemoveChar aspect
     evaluation_remove_char = evaluate(squad, f1_score, bidaf_predict, RemoveChar)
+
+    # Run evaluation for QWERTY aspect
     evaluation_remove_qwerty = evaluate(squad, f1_score, bidaf_predict, QWERTY)
 
     remove_char_df = pd.DataFrame(evaluation_remove_char,
                                   columns=['severity', 'f1_mean', 'f1_std'])
     qwerty_df = pd.DataFrame(evaluation_remove_qwerty,
-                                  columns=['severity', 'f1_mean', 'f1_std'])
+                             columns=['severity', 'f1_mean', 'f1_std'])
 
-    remove_char_df.to_csv('remove_char.csv')
-    qwerty_df.to_csv('qwerty.csv')
+    remove_char_df.to_csv(os.path.join(current_dir, 'outputs', 'remove_char.csv'))
+    qwerty_df.to_csv(os.path.join(current_dir, 'outputs', 'qwerty.csv'))
 
     save_plot(remove_char_df, 'RemoveChar', qwerty_df, 'QWERTY',
-              'remove_char', 'Analysis of BiDAF robustness to characters removal',
+              os.path.join(current_dir, 'outputs', 'remove_char'),
+              'Analysis of BiDAF robustness to characters removal',
               'QWERTY for comparison')
 
     save_plot(qwerty_df, 'QWERTY', remove_char_df, 'RemoveChar',
-              'qwerty', 'Analysis of BiDAF robustness to QWERTY misspellings',
+              os.path.join(current_dir, 'outputs', 'qwerty'),
+              'Analysis of BiDAF robustness to QWERTY misspellings',
               'RemoveChar for comparison')
-    '''

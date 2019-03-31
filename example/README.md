@@ -49,3 +49,5 @@ and report average F1 score and standard deviation of F1 scores calculated on ea
 ## Notes
 The script downloads resources from third parties.
 It may break any time when those resources will be no longer available.
+
+In this example we use only subset of data. The processing should take up to an hour.
