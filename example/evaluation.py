@@ -62,9 +62,9 @@ def calculate_dataset_scores(dataset, predict_func, score_func):
 
     scores = []
     for entry in dataset:
-        for paragraph in entry['paragraphs']:
+        for paragraph in entry['paragraphs'][:10]:
             context = paragraph['context']
-            for qa in paragraph['qas']:
+            for qa in paragraph['qas'][:5]:
                 gt_answers = [answer['text'] for answer in qa['answers']]
                 prediction = predict_func(context, qa['question'])
                 scores.append(metric_max_over_ground_truths(score_func,
@@ -93,23 +93,26 @@ def create_log_output(mean_scores, severity):
     return output
 
 
-def evaluate(squad_obj, score_func, predict_func, aspect):
+def evaluate(squad_obj, score_func, predict_func, aspect, limit=10):
 
     f1_original =\
-        calculate_dataset_scores(squad_obj.data['data'],
+        calculate_dataset_scores(squad_obj.data['data'][:limit],
                                  predict_func, score_func)
     means = [np.mean(f1_original)]
     results = [create_log_output(means, 0)]
 
     for severity in range(10, 101, 10):
+        print("Analysing {} with severity {}"
+              .format(aspect.__name__, severity))
         try:
             aspect_obj = aspect(words_percentage=severity)
             means = []
-            for _ in range(10):
+            for _ in range(5):
                 modified = squad_obj.apply(aspect_obj)
-                f1_scores = calculate_dataset_scores(modified['data'],
-                                                     predict_func,
-                                                     score_func)
+                f1_scores =\
+                    calculate_dataset_scores(
+                        modified['data'][:limit], predict_func,
+                        score_func)
                 means.append(np.mean(f1_scores))
 
             results.append(create_log_output(means, severity))
@@ -117,8 +120,8 @@ def evaluate(squad_obj, score_func, predict_func, aspect):
         except KeyboardInterrupt:
             break
 
-        except:
-            pass
+        except Exception as e:
+            print("Error occurred:", e)
 
     return results
 
@@ -149,7 +152,9 @@ def save_plot(main_results, main_results_label,
 
 
 if __name__ == '__main__':
+    print(__file__)
 
+    ''''
     BiDAF = Predictor.from_path(
         "https://s3-us-west-2.amazonaws.com/allennlp/models/bidaf-model-2017.09.15-charpad.tar.gz")
 
@@ -180,3 +185,4 @@ if __name__ == '__main__':
     save_plot(qwerty_df, 'QWERTY', remove_char_df, 'RemoveChar',
               'qwerty', 'Analysis of BiDAF robustness to QWERTY misspellings',
               'RemoveChar for comparison')
+    '''
