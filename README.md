@@ -1,6 +1,7 @@
 [![Documentation Status](https://readthedocs.org/projects/nlp-demo/badge/?version=latest)](https://nlp-demo.readthedocs.io/en/latest/?badge=latest)
 
-![alt wildnlp-logo](logo.png)
+![alt wildnlp-logo](logo.png)  
+
 Corrupt an input text to test NLP models' robustness.
 For details refer to https://nlp-demo.readthedocs.io
 
