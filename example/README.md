@@ -46,6 +46,16 @@ def evaluate(squad_obj, score_func, predict_func, aspect):
 We repeat evaluation on multiple versions of randomly corrupted text with the same level of severity
 and report average F1 score and standard deviation of F1 scores calculated on each run.
 
+#### BiDAF resilience to characters removal
+![alt RemoveChar_plot](outputs/remove_char.png)  
+
+Underlying data is available here: [remove_char.csv](outputs/remove_char.csv)
+
+#### BiDAF resilience to QWERTY mispellings
+![alt QWERTY_plot](outputs/qwerty.png)  
+
+Underlying data is available here: [remove_char.csv](outputs/qwerty.csv)
+
 ## Notes
 The script downloads resources from third parties.
 It may break any time when those resources will be no longer available.
