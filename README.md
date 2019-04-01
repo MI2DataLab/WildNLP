@@ -2,15 +2,75 @@
 
 ![alt wildnlp-logo](logo.png)  
 
-Corrupt an input text to test NLP models' robustness.
+Corrupt an input text to test NLP models' robustness.  
 For details refer to https://nlp-demo.readthedocs.io
 
 ## Installation
 `pip install wild-nlp`
 
+## Supported aspects
+
+1. **Articles**
+   
+   Randomly removes or swaps articles into wrong ones.
+
+2. **Digits2Words**
+
+   Converts numbers into words. Handles floating numbers as well.
+
+3. **Misspellings**
+
+   Misspells words appearing in the Wikipedia list of
+    **commonly misspelled English words** or **homophones**
+
+4. **Punctuation**
+
+   Randomly adds or removes specified punctuation marks.
+
+5. **QWERTY**
+
+   Simulates errors made while writing on a QWERTY-type keyboard.
+
+6. **RemoveChar**
+
+   Randomly removes **characters** from words or **white spaces** from sentences.
+
+7. **SentimentMasking**
+
+   Replaces random, single character with for example an asterisk)
+   of negative (or positive for completeness) words from Opinion Lexicon:  
+   http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
+
+8. **Swap**
+
+   Randomly swaps two characters within a word, excluding punctuations.
+
+```diff
+- All aspects can be chained together with the wildnlp.aspects.utils.compose function.
+```
+
+## Supported datasets
+Aspects can be applied to any text. Below is the list of datasets for which we already implemented processing pipelines. 
+
+1. CoNLL
+
+   The CoNLL-2003 shared task data for language-independent named entity recognition.
+
+2. IMDB
+
+   The IMDB dataset containing movie reviews for a sentiment analysis. The dataset consists of 50 000 reviews of two classes, negative and positive.
+
+3. SNLI
+
+   The SNLI dataset supporting the task of natural language inference.
+
+4. SQuAD
+
+   The SQuAD dataset for the Machine Comprehension problem.
+
 ## Usage
 ```python
-from wildnlp.aspects import Reverser, PigLatin
+from wildnlp.aspects.dummy import Reverser, PigLatin
 from wildnlp.aspects.utils import compose
 from wildnlp.datasets import SampleDataset
 

@@ -38,7 +38,7 @@ Applying corruption to a supported dataset
 .. code-block:: python
   :linenos:
 
-  from wildnlp.aspects import Reverser
+  from wildnlp.aspects.dummy import Reverser
   
   modified = dataset.apply(Reverser())
 
@@ -47,7 +47,7 @@ Modifying a string
 .. code-block:: python
   :linenos:
 
-  from wildnlp.aspects import Reverser
+  from wildnlp.aspects.dummy import Reverser
   
   modified = Reverser()('A string to be modified.')
 
@@ -56,7 +56,7 @@ Modifying a string
 
   .. code-block:: python
 
-    from wildnlp.aspects import Reverser
+    from wildnlp.aspects.dummy import Reverser
 
     reverser_object = Reverser()
     modified = reverser_object('A string to be modified.')
@@ -74,7 +74,7 @@ The code
 .. code-block:: python
   :linenos:
 
-  from wildnlp.aspects import Reverser, PigLatin
+  from wildnlp.aspects.dummy import Reverser, PigLatin
   from wildnlp.aspects.utils import compose
   from wildnlp.datasets import SampleDataset
 

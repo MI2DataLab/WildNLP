@@ -200,7 +200,7 @@ apply corruption to a supported dataset or modify an arbtrary string.</p>
 <h3>Applying corruption to a supported dataset<a class="headerlink" href="#applying-corruption-to-a-supported-dataset" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects.dummy</span> <span class="kn">import</span> <span class="n">Reverser</span>
 
 <span class="n">modified</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">Reverser</span><span class="p">())</span>
 </pre></div>
@@ -210,7 +210,7 @@ apply corruption to a supported dataset or modify an arbtrary string.</p>
 <h3>Modifying a string<a class="headerlink" href="#modifying-a-string" title="Permalink to this headline">¶</a></h3>
 <div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects.dummy</span> <span class="kn">import</span> <span class="n">Reverser</span>
 
 <span class="n">modified</span> <span class="o">=</span> <span class="n">Reverser</span><span class="p">()(</span><span class="s1">&#39;A string to be modified.&#39;</span><span class="p">)</span>
 </pre></div>
@@ -219,7 +219,7 @@ apply corruption to a supported dataset or modify an arbtrary string.</p>
 <p class="first admonition-title">Note</p>
 <p>All instances of classes derived from the Aspect class are callable.
 You can think of them as any other functions.</p>
-<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span>
+<div class="last highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects.dummy</span> <span class="kn">import</span> <span class="n">Reverser</span>
 
 <span class="n">reverser_object</span> <span class="o">=</span> <span class="n">Reverser</span><span class="p">()</span>
 <span class="n">modified</span> <span class="o">=</span> <span class="n">reverser_object</span><span class="p">(</span><span class="s1">&#39;A string to be modified.&#39;</span><span class="p">)</span>
@@ -248,7 +248,7 @@ You can think of them as any other functions.</p>
 11
 12
 13
-14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects</span> <span class="kn">import</span> <span class="n">Reverser</span><span class="p">,</span> <span class="n">PigLatin</span>
+14</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">wildnlp.aspects.dummy</span> <span class="kn">import</span> <span class="n">Reverser</span><span class="p">,</span> <span class="n">PigLatin</span>
 <span class="kn">from</span> <span class="nn">wildnlp.aspects.utils</span> <span class="kn">import</span> <span class="n">compose</span>
 <span class="kn">from</span> <span class="nn">wildnlp.datasets</span> <span class="kn">import</span> <span class="n">SampleDataset</span>
 
