@@ -21,9 +21,9 @@ All together we defined and implemented 11 aspects of text corruption.
 
 3. **Misspellings**
 
-   Misspells words appearing in the Wikipedia list of:
-    **commonly misspelled English words**  
-    **homophones**
+   Misspells words appearing in the Wikipedia list of:  
+    * **commonly misspelled English words**  
+    * **homophones**
 
 4. **Punctuation**
 
@@ -36,15 +36,15 @@ All together we defined and implemented 11 aspects of text corruption.
 6. **RemoveChar**
 
    Randomly removes:  
-   **characters** from words or  
-   **white spaces** from sentences
+   * **characters** from words or  
+   * **white spaces** from sentences
 
 7. **SentimentMasking**
 
    Replaces random, single character with for example an asterisk)
    in:  
-   **negative** or  
-   **positive** words from Opinion Lexicon:    
+   * **negative** or  
+   * **positive** words from Opinion Lexicon:    
    http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
 
 8. **Swap**
