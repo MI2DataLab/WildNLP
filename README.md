@@ -41,8 +41,7 @@ All together we defined and implemented 11 aspects of text corruption.
 
 7. **SentimentMasking**
 
-   Replaces random, single character with for example an asterisk)
-   in:  
+   Replaces random, single character with for example an asterisk in:  
    * **negative** or  
    * **positive** words from Opinion Lexicon:    
    http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
