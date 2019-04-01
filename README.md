@@ -9,6 +9,7 @@ For details refer to https://nlp-demo.readthedocs.io
 `pip install wild-nlp`
 
 ## Supported aspects
+All together we defined and implemented 11 aspects of text corruption.
 
 1. **Articles**
    
@@ -20,8 +21,9 @@ For details refer to https://nlp-demo.readthedocs.io
 
 3. **Misspellings**
 
-   Misspells words appearing in the Wikipedia list of
-    **commonly misspelled English words** or **homophones**
+   Misspells words appearing in the Wikipedia list of:
+    **commonly misspelled English words**  
+    **homophones**
 
 4. **Punctuation**
 
@@ -33,12 +35,16 @@ For details refer to https://nlp-demo.readthedocs.io
 
 6. **RemoveChar**
 
-   Randomly removes **characters** from words or **white spaces** from sentences.
+   Randomly removes:  
+   **characters** from words or  
+   **white spaces** from sentences
 
 7. **SentimentMasking**
 
    Replaces random, single character with for example an asterisk)
-   of negative (or positive for completeness) words from Opinion Lexicon:  
+   in:  
+   **negative** or  
+   **positive** words from Opinion Lexicon:    
    http://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html
 
 8. **Swap**
