@@ -52,19 +52,19 @@ For details refer to https://nlp-demo.readthedocs.io
 ## Supported datasets
 Aspects can be applied to any text. Below is the list of datasets for which we already implemented processing pipelines. 
 
-1. CoNLL
+1. **CoNLL**
 
    The CoNLL-2003 shared task data for language-independent named entity recognition.
 
-2. IMDB
+2. **IMDB**
 
    The IMDB dataset containing movie reviews for a sentiment analysis. The dataset consists of 50 000 reviews of two classes, negative and positive.
 
-3. SNLI
+3. **SNLI**
 
    The SNLI dataset supporting the task of natural language inference.
 
-4. SQuAD
+4. **SQuAD**
 
    The SQuAD dataset for the Machine Comprehension problem.
 
