@@ -24,3 +24,6 @@ def test_basic():
                            remove_percentage=100)(sentence)
 
     assert modified == 'This, is, the, end.'
+
+
+test_basic()

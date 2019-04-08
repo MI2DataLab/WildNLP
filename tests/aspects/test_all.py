@@ -24,9 +24,9 @@ def test_all():
         if issubclass(v, Aspect) and v is not Aspect:
             transformed = v()(sentence)
             assert isinstance(transformed, str)
-            print("\n{}:\n original: {}\n modified: {}\n diff: {}"
-                  .format(k, sentence, transformed,
-                          color_diff(sentence, transformed)))
+            #print("\n{}:\n original: {}\n modified: {}\n diff: {}"
+            #      .format(k, sentence, transformed,
+            #              color_diff(sentence, transformed)))
 
             transformed_word = v()('Works')
             assert isinstance(transformed_word, str)
@@ -43,3 +43,4 @@ def color_diff(original, modified):
             output += '\033[91m' + char[-1] + '\033[0m'
 
     return output
+
