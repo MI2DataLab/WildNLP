@@ -59,10 +59,20 @@ class AddSubString(Aspect):
 
         modified = ""
         prev_idx = 0
+        added = False
+
         for i, char in enumerate(sentence):
             if i in selected_string_starts:
                 modified += sentence[prev_idx:i] + self._add_string
                 prev_idx = i
+                added = True
+            else:
+                modified += sentence[prev_idx:i + 1]
+                prev_idx = i + 1
+                added = False
+
+        if added:
+            modified += sentence[-1]
 
         return modified
 

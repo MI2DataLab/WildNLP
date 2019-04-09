@@ -3,9 +3,12 @@ from wildnlp.aspects import AddSubString
 
 def test_basic():
 
-    for i in range(10):
-        modified = AddSubString(add_percentage=100)('')
-        print(modified)
-        #assert modified.isupper() or modified.isdigit()
-        assert modified.lower() in ""
+    modified = AddSubString(add_percentage=100)('')
+    print(modified)
+    assert modified.lower() in ""
 
+    sentence = 'Test sentence.'
+    modified = AddSubString(add_percentage=100)(sentence)
+    print(modified)
+    assert modified[-1] == '.'
+    assert len(modified) > len(sentence)
