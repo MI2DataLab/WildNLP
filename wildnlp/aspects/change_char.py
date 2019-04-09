@@ -17,7 +17,7 @@ class ChangeChar(Aspect):
         """
 
         :param mistakes_type: Type of dictionary of replacement chars:
-            qwerty, ocr or other.
+            qwerty, ocr or other (listed in json file).
 
         :param words_percentage: Percentage of words in a
             sentence that should be transformed. If greater than 0,

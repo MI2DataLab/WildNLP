@@ -22,8 +22,10 @@ class WhiteSpaces(Aspect):
     .. caution:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, add_percentage=0, remove_percentage=100, seed=42):
+    def __init__(self, white_spaces=" \t\n", add_percentage=0, remove_percentage=100, seed=42):
         """
+
+        :param white_spaces: A string contaning all used white spaces characters.
 
         :param add_percentage: Max percentage of white spaces in a sentence
             to be prepended with punctuation marks.
@@ -39,7 +41,8 @@ class WhiteSpaces(Aspect):
         if remove_percentage >= 1:
             remove_percentage /= 100.
 
-        self._white_spaces = " \t\n"
+        # TODO Are those all white spaces?
+        self._white_spaces = white_spaces
         self._add_percentage = add_percentage
         self._remove_percentage = remove_percentage
 
@@ -72,12 +75,23 @@ class WhiteSpaces(Aspect):
 
         modified = ""
         prev_idx = 0
+        added = False
+
         for i, char in enumerate(sentence):
             if i in selected_char:
                 modified += sentence[prev_idx:i] + random.choice(self._white_spaces)
                 prev_idx = i
+                added = True
             elif i in selected_space:
                 modified += sentence[prev_idx:i]
-                prev_idx = i
+                prev_idx = i+1
+                added = True
+            else:
+                modified += sentence[prev_idx:i+1]
+                prev_idx = i+1
+                added = True
+
+        if added:
+            modified += sentence[-1]
 
         return modified
