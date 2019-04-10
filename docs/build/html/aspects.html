@@ -89,7 +89,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Aspects</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#base-class">Base class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-wildnlp.aspects.utils">Utility functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addsubstring">AddSubString</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#articles">Articles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changechar">ChangeChar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#characters-removal">Characters removal</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#characters-swapping">Characters swapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#digits2words">Digits2Words</a></li>
@@ -97,6 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#punctuation">Punctuation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#qwerty">QWERTY</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sentiment-words-masking">Sentiment words masking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#whitespaces">WhiteSpaces</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
@@ -248,6 +251,54 @@ and special characters.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="addsubstring">
+<h2>AddSubString<a class="headerlink" href="#addsubstring" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.add_sub_string.AddSubString">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.add_sub_string.</code><code class="descname">AddSubString</code><span class="sig-paren">(</span><em>add_string='ue005'</em>, <em>add_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/add_sub_string.html#AddSubString"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.add_sub_string.AddSubString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Randomly adds specified extended sub-strings.
+The implementation guarantees that punctuation marks won’t be replaced them after removal.
+The result string will be longer than the original/input one.</p>
+<p>With default settings all occurrences of the specified punctuation
+mark will be removed.</p>
+<ul>
+<li><p class="first">Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Sentence have a comma.
+
+Possible transformations:
+- Sentence have a comma.
+- Sentence have a comma.
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.add_sub_string.AddSubString.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>add_string='\ue005'</em>, <em>add_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/add_sub_string.html#AddSubString.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.add_sub_string.AddSubString.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>add_string</strong> – String with extended tokens that will be added to sentences.</li>
+<li><strong>add_percentage</strong> – Max percentage of substrings in a sentence
+to be prepended with punctuation marks.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="articles">
 <h2>Articles<a class="headerlink" href="#articles" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
@@ -269,6 +320,45 @@ and special characters.</p>
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
 <li><strong>swap_probability</strong> – Probability of applying a transformation.
 Defaults to 0.5.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="changechar">
+<h2>ChangeChar<a class="headerlink" href="#changechar" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.change_char.ChangeChar">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.change_char.</code><code class="descname">ChangeChar</code><span class="sig-paren">(</span><em>mistakes_type='ocr'</em>, <em>words_percentage=1</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/change_char.html#ChangeChar"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.change_char.ChangeChar" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Simulates errors made while writing on a QWERTY-type keyboard.
+Characters are swapped with their neighbors on the keyboard.</p>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.change_char.ChangeChar.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>mistakes_type='ocr'</em>, <em>words_percentage=1</em>, <em>characters_percentage=10</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/change_char.html#ChangeChar.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.change_char.ChangeChar.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>mistakes_type</strong> – Type of dictionary of replacement chars:
+qwerty, ocr or other (listed in json file).</li>
+<li><strong>words_percentage</strong> – Percentage of words in a
+sentence that should be transformed. If greater than 0,
+always at least single word will be transformed.</li>
+<li><strong>characters_percentage</strong> – Percentage of characters in a
+word that should be transformed. If greater than 0
+always at least single character will be transformed.</li>
 <li><strong>seed</strong> – Random seed.</li>
 </ul>
 </td>
@@ -530,6 +620,56 @@ of negative (or positive for completeness) words from Opinion Lexicon:
 <li><strong>char</strong> – A character that will be used to mask words.</li>
 <li><strong>use_positive</strong> – If True positive (instead of negative)
 words will be masked.</li>
+<li><strong>seed</strong> – Random seed.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="whitespaces">
+<h2>WhiteSpaces<a class="headerlink" href="#whitespaces" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.white_spaces.WhiteSpaces">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.white_spaces.</code><code class="descname">WhiteSpaces</code><span class="sig-paren">(</span><em>white_spaces=' tn'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/white_spaces.html#WhiteSpaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.white_spaces.WhiteSpaces" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Randomly adds or removes specified extended white spaces.
+The implementation guarantees that any chars won’t be
+appended to the original sentence or won’t replace them after removal.</p>
+<p>With default settings all occurrences of the specified punctuation
+mark will be removed.</p>
+<ul>
+<li><p class="first">Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Sentence</span>     <span class="n">havea</span> <span class="n">com</span>  <span class="n">ma</span><span class="o">.</span>
+
+<span class="n">Possible</span> <span class="n">transformations</span><span class="p">:</span>
+<span class="o">-</span> <span class="n">Sente</span> <span class="n">nce</span> <span class="n">have</span> <span class="n">a</span> <span class="n">comma</span><span class="o">.</span>
+<span class="o">-</span> <span class="n">Sentence</span>     <span class="n">have</span> <span class="n">acomma</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition caution">
+<p class="first admonition-title">Caution</p>
+<p class="last">Uses random numbers, default seed is 42.</p>
+</div>
+<dl class="method">
+<dt id="wildnlp.aspects.white_spaces.WhiteSpaces.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>white_spaces=' \t\n'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/white_spaces.html#WhiteSpaces.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.white_spaces.WhiteSpaces.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>white_spaces</strong> – A string contaning all used white spaces characters.</li>
+<li><strong>add_percentage</strong> – Max percentage of white spaces in a sentence
+to be prepended with punctuation marks.</li>
+<li><strong>remove_percentage</strong> – Max percentage of existing punctuation marks
+that will be removed.</li>
 <li><strong>seed</strong> – Random seed.</li>
 </ul>
 </td>
