@@ -75,23 +75,14 @@ class WhiteSpaces(Aspect):
 
         modified = ""
         prev_idx = 0
-        added = False
 
         for i, char in enumerate(sentence):
             if i in selected_char:
-                modified += sentence[prev_idx:i] + random.choice(self._white_spaces)
-                prev_idx = i
-                added = True
+                modified += sentence[prev_idx:i+1] + random.choice(self._white_spaces)
             elif i in selected_space:
                 modified += sentence[prev_idx:i]
-                prev_idx = i+1
-                added = True
             else:
                 modified += sentence[prev_idx:i+1]
-                prev_idx = i+1
-                added = True
-
-        if added:
-            modified += sentence[-1]
+            prev_idx = i+1
 
         return modified
