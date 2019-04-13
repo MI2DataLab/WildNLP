@@ -37,4 +37,3 @@ def test_multiple_sentences():
 
     assert modified[-1] == '.'
     assert len(modified.split()) == len(sentences.split())
-

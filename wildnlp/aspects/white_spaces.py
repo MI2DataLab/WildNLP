@@ -25,7 +25,7 @@ class WhiteSpaces(Aspect):
     def __init__(self, white_spaces=" \t\n\r", add_percentage=0, remove_percentage=100, seed=42):
         """
 
-        :param white_spaces: A string contaning all used white spaces characters.
+        :param white_spaces: A string containing all used white spaces characters.
 
         :param add_percentage: Max percentage of white spaces in a sentence
             to be prepended with punctuation marks.

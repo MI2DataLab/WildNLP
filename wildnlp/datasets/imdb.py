@@ -96,7 +96,7 @@ class IMDB(Dataset):
     def _load_multiple_files(self, path):
 
         filenames = os.listdir(path)
-        for filename in filenames:
+        for filename in sorted(filenames):
             full_path = os.path.join(path, filename)
 
             _, patent_dir = os.path.split(path)

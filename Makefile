@@ -1,4 +1,4 @@
-.PHONY: build, dev, test, clean, example, send_to_pypi, update_leaderboard
+.PHONY: build, dev, test, clean, example, send_to_pypi, update_leaderboard, notebook
 IMAGE_NAME=wildnlp
 
 clean:
@@ -14,12 +14,16 @@ build:
 
 dev:
 	docker run --rm -ti \
+		-p 8888:8888 \
 		-v $(PWD)/:/project \
 		-w="/project" \
 		$(IMAGE_NAME)
 
 test:
 	python3 -m pytest tests/ -s
+
+notebook:
+	jupyter notebook --ip=0.0.0.0 --port=8888 --allow-root --no-browser
 
 example:
 	pip3 install -e .

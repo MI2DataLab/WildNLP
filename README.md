@@ -1,4 +1,6 @@
 [![Documentation Status](https://readthedocs.org/projects/nlp-demo/badge/?version=latest)](https://nlp-demo.readthedocs.io/en/latest/?badge=latest)
+[![Downloads](https://pepy.tech/badge/wild-nlp)](https://pepy.tech/project/wild-nlp)
+[![PyPI version](https://badge.fury.io/py/wild-nlp.svg)](https://badge.fury.io/py/wild-nlp)
 
 ![alt wildnlp-logo](logo.png)  
 

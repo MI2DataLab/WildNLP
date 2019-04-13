@@ -26,5 +26,7 @@ def test_advanced():
 def test_multiple_sentences():
     sentences = 'This is a dollar sign - $. '\
                 'A rabbit, the cute one, is looking for a carrot.'
-    modified = Swap(transform_percentage=5, seed=42)(sentences)
+    modified = Swap(transform_percentage=50, seed=42)(sentences)
 
+    assert modified != sentences
+    assert sentences[-1] == '.'

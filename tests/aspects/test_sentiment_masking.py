@@ -23,4 +23,3 @@ def test_positive():
     modified = SentimentMasking(use_positive=True)(sentence)
 
     assert modified != sentence
-
