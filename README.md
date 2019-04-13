@@ -51,7 +51,20 @@ All together we defined and implemented 11 aspects of text corruption.
 8. **Swap**
 
    Randomly swaps two characters within a word, excluding punctuations.
+   
+9. **Change char**
 
+   Randomly change characters according to chosen dictionary, default is 'ocr' to simulate simple OCR errors.
+   
+10. **White spaces**
+
+   Randomly add or remove white spaces (listed as a parameter).
+
+11. **Sub string**
+
+   Randomly add a substring to simulate more comples signs.
+   
+   
 ```diff
 - All aspects can be chained together with the wildnlp.aspects.utils.compose function.
 ```
