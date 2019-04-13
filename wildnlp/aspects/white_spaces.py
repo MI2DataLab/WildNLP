@@ -22,7 +22,7 @@ class WhiteSpaces(Aspect):
     .. caution:: Uses random numbers, default seed is 42.
     """
 
-    def __init__(self, white_spaces=" \t\n", add_percentage=0, remove_percentage=100, seed=42):
+    def __init__(self, white_spaces=" \t\n\r", add_percentage=0, remove_percentage=100, seed=42):
         """
 
         :param white_spaces: A string contaning all used white spaces characters.
