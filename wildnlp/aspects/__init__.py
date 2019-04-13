@@ -6,3 +6,6 @@ from .misspelling import Misspelling
 from .digits2words import Digits2Words
 from .sentiment_masking import SentimentMasking
 from .punctuation import Punctuation
+from .change_char import ChangeChar
+from .white_spaces import WhiteSpaces
+from .add_sub_string import AddSubString

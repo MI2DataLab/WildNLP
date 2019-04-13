@@ -41,5 +41,3 @@ def test_special_characters():
 
     assert RemoveChar(words_percentage=100)('.') == '.'
     assert RemoveChar(words_percentage=100)('Test!')[-1] == '!'
-
-

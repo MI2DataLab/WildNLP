@@ -16,10 +16,26 @@ Utility functions
 .. automodule:: wildnlp.aspects.utils
    :members:
 
+AddSubString
+------------
+
+.. autoclass:: wildnlp.aspects.add_sub_string.AddSubString
+   :members:
+   :special-members: __init__
+   :show-inheritance:
+
 Articles
 --------
 
 .. autoclass:: wildnlp.aspects.articles.Articles
+   :members:
+   :special-members: __init__
+   :show-inheritance:
+
+ChangeChar
+----------
+
+.. autoclass:: wildnlp.aspects.change_char.ChangeChar
    :members:
    :special-members: __init__
    :show-inheritance:
@@ -76,6 +92,14 @@ Sentiment words masking
 -----------------------
 
 .. autoclass:: wildnlp.aspects.sentiment_masking.SentimentMasking
+   :members:
+   :special-members: __init__
+   :show-inheritance:
+
+WhiteSpaces
+-----------------------
+
+.. autoclass:: wildnlp.aspects.white_spaces.WhiteSpaces
    :members:
    :special-members: __init__
    :show-inheritance:

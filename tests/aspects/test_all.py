@@ -24,9 +24,13 @@ def test_all():
         if issubclass(v, Aspect) and v is not Aspect:
             transformed = v()(sentence)
             assert isinstance(transformed, str)
-            print("\n{}:\n original: {}\n modified: {}\n diff: {}"
-                  .format(k, sentence, transformed,
-                          color_diff(sentence, transformed)))
+            try:
+                print("\n{}:\n original: {}\n modified: {}\n diff: {}"
+                      .format(k, sentence, transformed,
+                              color_diff(sentence, transformed)))
+            except UnicodeEncodeError:
+                print("\n{}:\n The result can't be displayed as it "
+                      "contains non ascii characters.".format(k))
 
             transformed_word = v()('Works')
             assert isinstance(transformed_word, str)
