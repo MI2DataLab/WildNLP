@@ -52,7 +52,7 @@ class CoNLL(Dataset):
                 processed = self._process_sample(sample)
                 self._data.append(processed)
 
-    def apply(self, aspect, apply_to_ne=False):
+    def apply(self, aspect, apply_to_ne=False, apply_to_both=False):
         """
 
         :param aspect: transformation function
@@ -60,6 +60,9 @@ class CoNLL(Dataset):
         :param apply_to_ne: if `False`, transformation won't be applied
                             to Named Entities. If `True`, transformation
                             will be applied only to Named Entities.
+        :param apply_to_both: if `True`, transformation will be applied
+                            to both the Named Entities and other tokens.
+
 
         :return: modified dataset in the following form:
 
@@ -80,10 +83,13 @@ class CoNLL(Dataset):
         for entry in self._data:
             tags = entry['ner_tags']
 
-            if apply_to_ne is False:
-                non_ner = np.where(tags == 'O')[0]
+            if not apply_to_both:
+                if apply_to_ne is False:
+                    non_ner = np.where(tags == 'O')[0]
+                else:
+                    non_ner = np.where(tags != 'O')[0]
             else:
-                non_ner = np.where(tags != 'O')[0]
+                non_ner = range(len(entry['tokens']))
 
             if len(non_ner) == 0:
                 modified.append(entry)
