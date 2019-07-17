@@ -8,7 +8,9 @@ class CoNLL(Dataset):
     entity recognition. For details see:
     https://www.clips.uantwerpen.be/conll2003/ner/
     """
-    datasetFileHeader: str
+    def __init__(self):
+        self._dataset_file_header: str = ''
+        super().__init__()
 
     @file_exists_check
     def load(self, path):
@@ -34,7 +36,7 @@ class CoNLL(Dataset):
         with open(path, "r") as f:
             for line in f.readlines():
                 if str(line).startswith('-DOCSTART-'):
-                    self.datasetFileHeader = str(line)
+                    self._dataset_file_header = str(line)
                     continue
 
                 elif line == "\n":
@@ -123,7 +125,7 @@ class CoNLL(Dataset):
         with open(path, 'w+') as f:
 
             lines = list()
-            lines.append(self.datasetFileHeader)
+            lines.append(self._dataset_file_header)
 
             try:
                 for entry in data:
