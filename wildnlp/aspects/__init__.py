@@ -9,3 +9,4 @@ from .punctuation import Punctuation
 from .change_char import ChangeChar
 from .white_spaces import WhiteSpaces
 from .add_sub_string import AddSubString
+from .lowercase import LowerCase
