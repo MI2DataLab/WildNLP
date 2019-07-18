@@ -2,7 +2,7 @@ from .base import Aspect
 
 
 class LowerCase(Aspect):
-    """Lower-cases the dataset
+    """Lower-cases the dataset.
 
     """
 

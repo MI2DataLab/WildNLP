@@ -103,3 +103,11 @@ WhiteSpaces
    :members:
    :special-members: __init__
    :show-inheritance:
+
+Lowercase
+-----------------------
+
+.. autoclass:: wildnlp.aspects.lowercase.LowerCase
+   :members:
+   :special-members: __init__
+   :show-inheritance:
