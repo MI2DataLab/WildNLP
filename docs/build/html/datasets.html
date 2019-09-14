@@ -211,14 +211,14 @@ in the dataset and apply a given aspect to them.</p>
 <h2>CoNLL 2003<a class="headerlink" href="#conll-2003" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="wildnlp.datasets.conll.CoNLL">
-<em class="property">class </em><code class="descclassname">wildnlp.datasets.conll.</code><code class="descname">CoNLL</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">wildnlp.datasets.conll.</code><code class="descname">CoNLL</code><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#wildnlp.datasets.base.Dataset" title="wildnlp.datasets.base.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.datasets.base.Dataset</span></code></a></p>
 <p>The CoNLL-2003 shared task data for language-independent named
 entity recognition. For details see:
 <a class="reference external" href="https://www.clips.uantwerpen.be/conll2003/ner/">https://www.clips.uantwerpen.be/conll2003/ner/</a></p>
 <dl class="method">
 <dt id="wildnlp.datasets.conll.CoNLL.apply">
-<code class="descname">apply</code><span class="sig-paren">(</span><em>aspect</em>, <em>apply_to_ne=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL.apply" title="Permalink to this definition">¶</a></dt>
+<code class="descname">apply</code><span class="sig-paren">(</span><em>aspect</em>, <em>apply_to_ne=False</em>, <em>apply_to_both=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/datasets/conll.html#CoNLL.apply"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.datasets.conll.CoNLL.apply" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -228,6 +228,8 @@ entity recognition. For details see:
 <li><strong>apply_to_ne</strong> – if <cite>False</cite>, transformation won’t be applied
 to Named Entities. If <cite>True</cite>, transformation
 will be applied only to Named Entities.</li>
+<li><strong>apply_to_both</strong> – if <cite>True</cite>, transformation will be applied
+to both the Named Entities and other tokens.</li>
 </ul>
 </td>
 </tr>

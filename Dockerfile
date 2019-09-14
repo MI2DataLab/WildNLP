@@ -22,6 +22,3 @@ RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY example/requirements.txt ./example/
 RUN pip3 install --no-cache-dir -r example/requirements.txt
-
-RUN git clone https://github.com/codalab/codalab-cli.git \
-    && cd codalab-cli && ./setup.sh server
