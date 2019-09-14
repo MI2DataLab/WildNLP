@@ -100,6 +100,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#qwerty">QWERTY</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sentiment-words-masking">Sentiment words masking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#whitespaces">WhiteSpaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lowercase">Lowercase</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="datasets.html">Datasets</a></li>
@@ -635,7 +636,7 @@ words will be masked.</li>
 <h2>WhiteSpaces<a class="headerlink" href="#whitespaces" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="wildnlp.aspects.white_spaces.WhiteSpaces">
-<em class="property">class </em><code class="descclassname">wildnlp.aspects.white_spaces.</code><code class="descname">WhiteSpaces</code><span class="sig-paren">(</span><em>white_spaces=' tn'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/white_spaces.html#WhiteSpaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.white_spaces.WhiteSpaces" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.white_spaces.</code><code class="descname">WhiteSpaces</code><span class="sig-paren">(</span><em>white_spaces=' tnr'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/white_spaces.html#WhiteSpaces"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.white_spaces.WhiteSpaces" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
 <p>Randomly adds or removes specified extended white spaces.
 The implementation guarantees that any chars won’t be
@@ -659,13 +660,13 @@ mark will be removed.</p>
 </div>
 <dl class="method">
 <dt id="wildnlp.aspects.white_spaces.WhiteSpaces.__init__">
-<code class="descname">__init__</code><span class="sig-paren">(</span><em>white_spaces=' \t\n'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/white_spaces.html#WhiteSpaces.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.white_spaces.WhiteSpaces.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>white_spaces=' \t\n\r'</em>, <em>add_percentage=0</em>, <em>remove_percentage=100</em>, <em>seed=42</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/wildnlp/aspects/white_spaces.html#WhiteSpaces.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.white_spaces.WhiteSpaces.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>white_spaces</strong> – A string contaning all used white spaces characters.</li>
+<li><strong>white_spaces</strong> – A string containing all used white spaces characters.</li>
 <li><strong>add_percentage</strong> – Max percentage of white spaces in a sentence
 to be prepended with punctuation marks.</li>
 <li><strong>remove_percentage</strong> – Max percentage of existing punctuation marks
@@ -678,6 +679,16 @@ that will be removed.</li>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+</div>
+<div class="section" id="lowercase">
+<h2>Lowercase<a class="headerlink" href="#lowercase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="wildnlp.aspects.lowercase.LowerCase">
+<em class="property">class </em><code class="descclassname">wildnlp.aspects.lowercase.</code><code class="descname">LowerCase</code><a class="reference internal" href="_modules/wildnlp/aspects/lowercase.html#LowerCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#wildnlp.aspects.lowercase.LowerCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#wildnlp.aspects.base.Aspect" title="wildnlp.aspects.base.Aspect"><code class="xref py py-class docutils literal notranslate"><span class="pre">wildnlp.aspects.base.Aspect</span></code></a></p>
+<p>Lower-cases the dataset.</p>
 </dd></dl>
 
 </div>

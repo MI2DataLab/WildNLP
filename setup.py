@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="wild-nlp",
-    version="1.0.1",
+    version="1.0.2",
     author="Dominika Basaj, Barbara Rychalska, Alicja Gosiewska, Adam Słucki",
     author_email="adam.slucki@gmail.com",
     description=("Text aspects for nlp models"),

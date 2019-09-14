@@ -30,7 +30,7 @@ example:
 	python3 example/evaluation.py
 
 send_to_pypi:
-	python3 -m pip install --upgrade setuptools wheel, twine
+	python3 -m pip install --upgrade setuptools wheel twine
 	python3 setup.py sdist bdist_wheel
 	python3 -m twine upload dist/*
 
