@@ -105,3 +105,9 @@ composed = compose(Reverser(), PigLatin())
 # Apply the function to the dataset
 modified = dataset.apply(composed)
 ```
+
+# Acknowledgments
+
+Adam Slucki and Dominika Basaj were financially supported by grant POIR.01.01.01-00-0328/17-01.
+Przemyslaw Biecek was financially supported by NCN Opus grant 2017/27/B/ST6/0130.
+
