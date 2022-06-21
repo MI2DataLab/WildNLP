@@ -1,4 +1,4 @@
-numpy==1.16.2
+numpy==1.22.0
 num2words==0.5.9
 pytest==4.2.0
 Sphinx==1.8.4
