@@ -1,7 +1,7 @@
 allennlp==0.8.3
 jupyter
 matplotlib==3.0.3
-numpy==1.16.2
+numpy==1.22.0
 pandas==0.24.2
 requests==2.21.0
 shap==0.28.5
